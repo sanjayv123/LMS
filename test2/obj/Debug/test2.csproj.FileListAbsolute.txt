@@ -1,0 +1,16 @@
+C:\Users\sanjayp\Documents\Visual Studio 2013\Projects\Home\test2\bin\Debug\test2.exe.config
+C:\Users\sanjayp\Documents\Visual Studio 2013\Projects\Home\test2\bin\Debug\test2.exe
+C:\Users\sanjayp\Documents\Visual Studio 2013\Projects\Home\test2\bin\Debug\test2.pdb
+C:\Users\sanjayp\Documents\Visual Studio 2013\Projects\Home\test2\bin\Debug\EntityFramework.dll
+C:\Users\sanjayp\Documents\Visual Studio 2013\Projects\Home\test2\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\sanjayp\Documents\Visual Studio 2013\Projects\Home\test2\bin\Debug\Home.dll
+C:\Users\sanjayp\Documents\Visual Studio 2013\Projects\Home\test2\bin\Debug\LMS.Data.dll
+C:\Users\sanjayp\Documents\Visual Studio 2013\Projects\Home\test2\bin\Debug\LMS.Service.dll
+C:\Users\sanjayp\Documents\Visual Studio 2013\Projects\Home\test2\bin\Debug\EntityFramework.xml
+C:\Users\sanjayp\Documents\Visual Studio 2013\Projects\Home\test2\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\sanjayp\Documents\Visual Studio 2013\Projects\Home\test2\bin\Debug\Home.pdb
+C:\Users\sanjayp\Documents\Visual Studio 2013\Projects\Home\test2\bin\Debug\LMS.Data.pdb
+C:\Users\sanjayp\Documents\Visual Studio 2013\Projects\Home\test2\bin\Debug\LMS.Service.pdb
+C:\Users\sanjayp\Documents\Visual Studio 2013\Projects\Home\test2\obj\Debug\test2.csprojResolveAssemblyReference.cache
+C:\Users\sanjayp\Documents\Visual Studio 2013\Projects\Home\test2\obj\Debug\test2.exe
+C:\Users\sanjayp\Documents\Visual Studio 2013\Projects\Home\test2\obj\Debug\test2.pdb

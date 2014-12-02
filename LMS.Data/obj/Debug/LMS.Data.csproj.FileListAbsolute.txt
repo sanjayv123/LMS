@@ -1,0 +1,10 @@
+c:\Users\sanjayp\documents\visual studio 2013\Projects\Home\LMS.Data\bin\Debug\LMS.Data.dll.config
+c:\Users\sanjayp\documents\visual studio 2013\Projects\Home\LMS.Data\bin\Debug\LMS.Data.dll
+c:\Users\sanjayp\documents\visual studio 2013\Projects\Home\LMS.Data\bin\Debug\LMS.Data.pdb
+c:\Users\sanjayp\documents\visual studio 2013\Projects\Home\LMS.Data\bin\Debug\EntityFramework.dll
+c:\Users\sanjayp\documents\visual studio 2013\Projects\Home\LMS.Data\bin\Debug\EntityFramework.SqlServer.dll
+c:\Users\sanjayp\documents\visual studio 2013\Projects\Home\LMS.Data\bin\Debug\EntityFramework.xml
+c:\Users\sanjayp\documents\visual studio 2013\Projects\Home\LMS.Data\bin\Debug\EntityFramework.SqlServer.xml
+c:\Users\sanjayp\documents\visual studio 2013\Projects\Home\LMS.Data\obj\Debug\LMS.Data.csprojResolveAssemblyReference.cache
+c:\Users\sanjayp\documents\visual studio 2013\Projects\Home\LMS.Data\obj\Debug\LMS.Data.dll
+c:\Users\sanjayp\documents\visual studio 2013\Projects\Home\LMS.Data\obj\Debug\LMS.Data.pdb

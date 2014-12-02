@@ -1,0 +1,95 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="LMSDBModelStoreContainer" CdmEntityContainer="LMSDBEntities">
+    <EntitySetMapping Name="Departments">
+      <EntityTypeMapping TypeName="LMSDBModel.Department">
+        <MappingFragment StoreEntitySet="MT_DEPARTMENT">
+          <ScalarProperty Name="DEP_NAME" ColumnName="DEP_NAME" />
+          <ScalarProperty Name="DEP_ID" ColumnName="DEP_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="EmpDetails">
+      <EntityTypeMapping TypeName="LMSDBModel.EmpDetails">
+        <MappingFragment StoreEntitySet="MT_EMPLOYEEDETAILS">
+          <ScalarProperty Name="EMP_ID" ColumnName="EMP_ID" />
+          <ScalarProperty Name="DEP_ID" ColumnName="DEP_ID" />
+          <ScalarProperty Name="JOB_ID" ColumnName="JOB_ID" />
+          <ScalarProperty Name="EMP_CODE" ColumnName="EMP_CODE" />
+          <ScalarProperty Name="EMP_FIRSTNAME" ColumnName="EMP_FIRSTNAME" />
+          <ScalarProperty Name="EMP_MIDDLENAME" ColumnName="EMP_MIDDLENAME" />
+          <ScalarProperty Name="EMP_LASTNAME" ColumnName="EMP_LASTNAME" />
+          <ScalarProperty Name="EMP_ADDRESS" ColumnName="EMP_ADDRESS" />
+          <ScalarProperty Name="EMP_EMAIL" ColumnName="EMP_EMAIL" />
+          <ScalarProperty Name="EMP_MOBILENO" ColumnName="EMP_MOBILENO" />
+          <ScalarProperty Name="EMP_PHONENO" ColumnName="EMP_PHONENO" />
+          <ScalarProperty Name="EMP_JOININGDATE" ColumnName="EMP_JOININGDATE" />
+          <ScalarProperty Name="EMP_GENDER" ColumnName="EMP_GENDER" />
+          <ScalarProperty Name="EMP_DOB" ColumnName="EMP_DOB" />
+          <ScalarProperty Name="EMP_PERSONALMAILID" ColumnName="EMP_PERSONALMAILID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="JobDescriptions">
+      <EntityTypeMapping TypeName="LMSDBModel.JobDescription">
+        <MappingFragment StoreEntitySet="MT_JOBDESCRIPTION">
+          <ScalarProperty Name="JOB_ID" ColumnName="JOB_ID" />
+          <ScalarProperty Name="JOB_ROLE" ColumnName="JOB_ROLE" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Leaves">
+      <EntityTypeMapping TypeName="LMSDBModel.Leave">
+        <MappingFragment StoreEntitySet="MT_LEAVE">
+          <ScalarProperty Name="LEAVE_ID" ColumnName="LEAVE_ID" />
+          <ScalarProperty Name="LEAVE_TYPE" ColumnName="LEAVE_TYPE" />
+          <ScalarProperty Name="JOB_ID" ColumnName="JOB_ID" />
+          <ScalarProperty Name="LEAVE_STATUS" ColumnName="LEAVE_STATUS" />
+          <ScalarProperty Name="LEAVE_HOLIDAY" ColumnName="LEAVE_HOLIDAY" />
+          <ScalarProperty Name="LEAVE_WEEKOFF" ColumnName="LEAVE_WEEKOFF" />
+          <ScalarProperty Name="LEAVE_APPROVAL" ColumnName="LEAVE_APPROVAL" />
+          <ScalarProperty Name="LEAVE_ONLEAVEDAYS" ColumnName="LEAVE_ONLEAVEDAYS" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Attendances">
+      <EntityTypeMapping TypeName="LMSDBModel.Attendance">
+        <MappingFragment StoreEntitySet="MT_ATTENDANCE">
+          <ScalarProperty Name="DEP_ID" ColumnName="DEP_ID" />
+          <ScalarProperty Name="JOB_ID" ColumnName="JOB_ID" />
+          <ScalarProperty Name="ATT_WORKINGHRS" ColumnName="ATT_WORKINGHRS" />
+          <ScalarProperty Name="ATT_WORKINGDAYS" ColumnName="ATT_WORKINGDAYS" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="EmpAttendances">
+      <EntityTypeMapping TypeName="LMSDBModel.EmpAttendance">
+        <MappingFragment StoreEntitySet="TR_EMPATTENDANCE">
+          <ScalarProperty Name="EMP_ID" ColumnName="EMP_ID" />
+          <ScalarProperty Name="DEP_ID" ColumnName="DEP_ID" />
+          <ScalarProperty Name="JOB_ID" ColumnName="JOB_ID" />
+          <ScalarProperty Name="ATT_NUMOFDAYS" ColumnName="ATT_NUMOFDAYS" />
+          <ScalarProperty Name="ATT_TOTALWORKINGHRS" ColumnName="ATT_TOTALWORKINGHRS" />
+          <ScalarProperty Name="ATT_DATE" ColumnName="ATT_DATE" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="EmployeeLeaves">
+      <EntityTypeMapping TypeName="LMSDBModel.EmployeeLeave">
+        <MappingFragment StoreEntitySet="TR_EMPLEAVE">
+          <ScalarProperty Name="EMP_ID" ColumnName="EMP_ID" />
+          <ScalarProperty Name="DEP_ID" ColumnName="DEP_ID" />
+          <ScalarProperty Name="JOB_ID" ColumnName="JOB_ID" />
+          <ScalarProperty Name="LEAVE_ID" ColumnName="LEAVE_ID" />
+          <ScalarProperty Name="LEAVE_REMAININGDAYS" ColumnName="LEAVE_REMAININGDAYS" />
+          <ScalarProperty Name="LEAVE_STATUS" ColumnName="LEAVE_STATUS" />
+          <ScalarProperty Name="LEAVE_APPROVEDBY" ColumnName="LEAVE_APPROVEDBY" />
+          <ScalarProperty Name="LEAVE_REASON" ColumnName="LEAVE_REASON" />
+          <ScalarProperty Name="LEAVE_FROMDATE" ColumnName="LEAVE_FROMDATE" />
+          <ScalarProperty Name="LEAVE_TODATE" ColumnName="LEAVE_TODATE" />
+          <ScalarProperty Name="LEAVE_JOININGDATE" ColumnName="LEAVE_JOININGDATE" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

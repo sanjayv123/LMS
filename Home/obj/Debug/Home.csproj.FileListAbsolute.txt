@@ -1,0 +1,12 @@
+c:\users\sanjayp\documents\visual studio 2013\Projects\Home\Home\bin\Home.dll.config
+c:\users\sanjayp\documents\visual studio 2013\Projects\Home\Home\bin\Home.dll
+c:\users\sanjayp\documents\visual studio 2013\Projects\Home\Home\bin\Home.pdb
+c:\users\sanjayp\documents\visual studio 2013\Projects\Home\Home\obj\Debug\Home.csprojResolveAssemblyReference.cache
+c:\users\sanjayp\documents\visual studio 2013\Projects\Home\Home\obj\Debug\Home.dll
+c:\users\sanjayp\documents\visual studio 2013\Projects\Home\Home\obj\Debug\Home.pdb
+C:\Users\sanjayp\Documents\Visual Studio 2013\Projects\Home\Home\bin\LMS.Data.dll
+C:\Users\sanjayp\Documents\Visual Studio 2013\Projects\Home\Home\bin\LMS.Service.dll
+C:\Users\sanjayp\Documents\Visual Studio 2013\Projects\Home\Home\bin\EntityFramework.dll
+C:\Users\sanjayp\Documents\Visual Studio 2013\Projects\Home\Home\bin\LMS.Data.pdb
+C:\Users\sanjayp\Documents\Visual Studio 2013\Projects\Home\Home\bin\LMS.Service.pdb
+C:\Users\sanjayp\Documents\Visual Studio 2013\Projects\Home\Home\bin\EntityFramework.xml
