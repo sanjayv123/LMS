@@ -7,35 +7,9 @@
     <Property Name="DEP_NAME" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
     <Property Name="DEP_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <NavigationProperty Name="TR_EMPATTENDANCE" Relationship="Self.FK_DEPATTENDANCEID" FromRole="MT_DEPARTMENT" ToRole="TR_EMPATTENDANCE" />
-    <NavigationProperty Name="MT_EMPLOYEEDETAILS" Relationship="Self.FK_DEPDETAILSID" FromRole="MT_DEPARTMENT" ToRole="MT_EMPLOYEEDETAILS" />
     <NavigationProperty Name="MT_ATTENDANCE" Relationship="Self.FK_DEPID" FromRole="MT_DEPARTMENT" ToRole="MT_ATTENDANCE" />
-    <NavigationProperty Name="TR_EMPLEAVE" Relationship="Self.FK_DEPLEAVEID" FromRole="MT_DEPARTMENT" ToRole="TR_EMPLEAVE" />
-  </EntityType>
-  <EntityType Name="EmpDetails">
-    <Key>
-      <PropertyRef Name="EMP_ID" />
-    </Key>
-    <Property Name="EMP_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="DEP_ID" Type="Int32" Nullable="false" />
-    <Property Name="JOB_ID" Type="Int32" Nullable="false" />
-    <Property Name="EMP_CODE" Type="Int32" />
-    <Property Name="EMP_FIRSTNAME" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
-    <Property Name="EMP_MIDDLENAME" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
-    <Property Name="EMP_LASTNAME" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
-    <Property Name="EMP_ADDRESS" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-    <Property Name="EMP_EMAIL" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
-    <Property Name="EMP_MOBILENO" Type="Int32" />
-    <Property Name="EMP_PHONENO" Type="Int32" />
-    <Property Name="EMP_JOININGDATE" Type="DateTime" Precision="3" />
-    <Property Name="EMP_GENDER" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
-    <Property Name="EMP_DOB" Type="DateTime" Precision="3" />
-    <Property Name="EMP_PERSONALMAILID" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
-    <NavigationProperty Name="MT_DEPARTMENT" Relationship="Self.FK_DEPDETAILSID" FromRole="MT_EMPLOYEEDETAILS" ToRole="MT_DEPARTMENT" />
-    <NavigationProperty Name="TR_EMPLEAVE" Relationship="Self.FK_APPROVALEMPID" FromRole="MT_EMPLOYEEDETAILS" ToRole="TR_EMPLEAVE" />
-    <NavigationProperty Name="TR_EMPATTENDANCE" Relationship="Self.FK_EMPATTENDANCEID" FromRole="MT_EMPLOYEEDETAILS" ToRole="TR_EMPATTENDANCE" />
-    <NavigationProperty Name="TR_EMPLEAVE1" Relationship="Self.FK_EMPLEAVEID" FromRole="MT_EMPLOYEEDETAILS" ToRole="TR_EMPLEAVE" />
-    <NavigationProperty Name="MT_JOBDESCRIPTION" Relationship="Self.FK_JOBDETAILSID" FromRole="MT_EMPLOYEEDETAILS" ToRole="MT_JOBDESCRIPTION" />
-    <NavigationProperty Name="MT_LEAVE" Relationship="Self.FK_LEAVEEMPID" FromRole="MT_EMPLOYEEDETAILS" ToRole="MT_LEAVE" />
+    <NavigationProperty Name="MT_EMPLOYEEDETAILS" Relationship="LMSDBModel.FK_DEPDETAILSID" FromRole="Department" ToRole="MT_EMPLOYEEDETAILS" />
+    <NavigationProperty Name="TR_EMPLEAVE" Relationship="LMSDBModel.FK_DEPLEAVEID" FromRole="Department" ToRole="TR_EMPLEAVE" />
   </EntityType>
   <EntityType Name="JobDescription">
     <Key>
@@ -43,27 +17,10 @@
     </Key>
     <Property Name="JOB_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="JOB_ROLE" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
-    <NavigationProperty Name="MT_EMPLOYEEDETAILS" Relationship="Self.FK_JOBDETAILSID" FromRole="MT_JOBDESCRIPTION" ToRole="MT_EMPLOYEEDETAILS" />
     <NavigationProperty Name="TR_EMPATTENDANCE" Relationship="Self.FK_JOBATTENDANCEID" FromRole="MT_JOBDESCRIPTION" ToRole="TR_EMPATTENDANCE" />
     <NavigationProperty Name="MT_ATTENDANCE" Relationship="Self.FK_JOBID" FromRole="MT_JOBDESCRIPTION" ToRole="MT_ATTENDANCE" />
-    <NavigationProperty Name="TR_EMPLEAVE" Relationship="Self.FK_JOBLEAVEID" FromRole="MT_JOBDESCRIPTION" ToRole="TR_EMPLEAVE" />
-    <NavigationProperty Name="MT_LEAVE" Relationship="Self.FK_LEAVEJOBID" FromRole="MT_JOBDESCRIPTION" ToRole="MT_LEAVE" />
-  </EntityType>
-  <EntityType Name="Leave">
-    <Key>
-      <PropertyRef Name="LEAVE_ID" />
-    </Key>
-    <Property Name="LEAVE_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="LEAVE_TYPE" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
-    <Property Name="JOB_ID" Type="Int32" Nullable="false" />
-    <Property Name="LEAVE_STATUS" Type="String" MaxLength="2" FixedLength="true" Unicode="false" />
-    <Property Name="LEAVE_HOLIDAY" Type="Int32" />
-    <Property Name="LEAVE_WEEKOFF" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
-    <Property Name="LEAVE_APPROVAL" Type="Int32" Nullable="false" />
-    <Property Name="LEAVE_ONLEAVEDAYS" Type="Int32" />
-    <NavigationProperty Name="MT_EMPLOYEEDETAILS" Relationship="Self.FK_LEAVEEMPID" FromRole="MT_LEAVE" ToRole="MT_EMPLOYEEDETAILS" />
-    <NavigationProperty Name="MT_JOBDESCRIPTION" Relationship="Self.FK_LEAVEJOBID" FromRole="MT_LEAVE" ToRole="MT_JOBDESCRIPTION" />
-    <NavigationProperty Name="TR_EMPLEAVE" Relationship="Self.FK_EMPLEAVETYPEID" FromRole="MT_LEAVE" ToRole="TR_EMPLEAVE" />
+    <NavigationProperty Name="MT_EMPLOYEEDETAILS" Relationship="LMSDBModel.FK_JOBDETAILSID" FromRole="JobDescription" ToRole="MT_EMPLOYEEDETAILS" />
+    <NavigationProperty Name="TR_EMPLEAVE" Relationship="LMSDBModel.FK_JOBLEAVEID" FromRole="JobDescription" ToRole="TR_EMPLEAVE" />
   </EntityType>
   <EntityType Name="Attendance">
     <Key>
@@ -90,33 +47,8 @@
     <Property Name="ATT_TOTALWORKINGHRS" Type="Int32" />
     <Property Name="ATT_DATE" Type="DateTime" Precision="3" />
     <NavigationProperty Name="MT_DEPARTMENT" Relationship="Self.FK_DEPATTENDANCEID" FromRole="TR_EMPATTENDANCE" ToRole="MT_DEPARTMENT" />
-    <NavigationProperty Name="MT_EMPLOYEEDETAILS" Relationship="Self.FK_EMPATTENDANCEID" FromRole="TR_EMPATTENDANCE" ToRole="MT_EMPLOYEEDETAILS" />
     <NavigationProperty Name="MT_JOBDESCRIPTION" Relationship="Self.FK_JOBATTENDANCEID" FromRole="TR_EMPATTENDANCE" ToRole="MT_JOBDESCRIPTION" />
-  </EntityType>
-  <EntityType Name="EmployeeLeave">
-    <Key>
-      <PropertyRef Name="EMP_ID" />
-      <PropertyRef Name="DEP_ID" />
-      <PropertyRef Name="JOB_ID" />
-      <PropertyRef Name="LEAVE_ID" />
-      <PropertyRef Name="LEAVE_APPROVEDBY" />
-    </Key>
-    <Property Name="EMP_ID" Type="Int32" Nullable="false" />
-    <Property Name="DEP_ID" Type="Int32" Nullable="false" />
-    <Property Name="JOB_ID" Type="Int32" Nullable="false" />
-    <Property Name="LEAVE_ID" Type="Int32" Nullable="false" />
-    <Property Name="LEAVE_REMAININGDAYS" Type="Int32" />
-    <Property Name="LEAVE_STATUS" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
-    <Property Name="LEAVE_APPROVEDBY" Type="Int32" Nullable="false" />
-    <Property Name="LEAVE_REASON" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-    <Property Name="LEAVE_FROMDATE" Type="DateTime" Precision="3" />
-    <Property Name="LEAVE_TODATE" Type="DateTime" Precision="3" />
-    <Property Name="LEAVE_JOININGDATE" Type="DateTime" Precision="3" />
-    <NavigationProperty Name="MT_DEPARTMENT" Relationship="Self.FK_DEPLEAVEID" FromRole="TR_EMPLEAVE" ToRole="MT_DEPARTMENT" />
-    <NavigationProperty Name="MT_EMPLOYEEDETAILS" Relationship="Self.FK_APPROVALEMPID" FromRole="TR_EMPLEAVE" ToRole="MT_EMPLOYEEDETAILS" />
-    <NavigationProperty Name="MT_EMPLOYEEDETAILS1" Relationship="Self.FK_EMPLEAVEID" FromRole="TR_EMPLEAVE" ToRole="MT_EMPLOYEEDETAILS" />
-    <NavigationProperty Name="MT_JOBDESCRIPTION" Relationship="Self.FK_JOBLEAVEID" FromRole="TR_EMPLEAVE" ToRole="MT_JOBDESCRIPTION" />
-    <NavigationProperty Name="MT_LEAVE" Relationship="Self.FK_EMPLEAVETYPEID" FromRole="TR_EMPLEAVE" ToRole="MT_LEAVE" />
+    <NavigationProperty Name="MT_EMPLOYEEDETAILS" Relationship="LMSDBModel.FK_EMPATTENDANCEID" FromRole="EmpAttendance" ToRole="MT_EMPLOYEEDETAILS" />
   </EntityType>
   <Association Name="FK_DEPATTENDANCEID">
     <End Role="MT_DEPARTMENT" Type="LMSDBModel.Department" Multiplicity="1" />
@@ -130,18 +62,6 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK_DEPDETAILSID">
-    <End Role="MT_DEPARTMENT" Type="LMSDBModel.Department" Multiplicity="1" />
-    <End Role="MT_EMPLOYEEDETAILS" Type="LMSDBModel.EmpDetails" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="MT_DEPARTMENT">
-        <PropertyRef Name="DEP_ID" />
-      </Principal>
-      <Dependent Role="MT_EMPLOYEEDETAILS">
-        <PropertyRef Name="DEP_ID" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
   <Association Name="FK_DEPID">
     <End Role="MT_DEPARTMENT" Type="LMSDBModel.Department" Multiplicity="1" />
     <End Role="MT_ATTENDANCE" Type="LMSDBModel.Attendance" Multiplicity="*" />
@@ -151,78 +71,6 @@
       </Principal>
       <Dependent Role="MT_ATTENDANCE">
         <PropertyRef Name="DEP_ID" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_DEPLEAVEID">
-    <End Role="MT_DEPARTMENT" Type="LMSDBModel.Department" Multiplicity="1" />
-    <End Role="TR_EMPLEAVE" Type="LMSDBModel.EmployeeLeave" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="MT_DEPARTMENT">
-        <PropertyRef Name="DEP_ID" />
-      </Principal>
-      <Dependent Role="TR_EMPLEAVE">
-        <PropertyRef Name="DEP_ID" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_APPROVALEMPID">
-    <End Role="MT_EMPLOYEEDETAILS" Type="LMSDBModel.EmpDetails" Multiplicity="1" />
-    <End Role="TR_EMPLEAVE" Type="LMSDBModel.EmployeeLeave" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="MT_EMPLOYEEDETAILS">
-        <PropertyRef Name="EMP_ID" />
-      </Principal>
-      <Dependent Role="TR_EMPLEAVE">
-        <PropertyRef Name="LEAVE_APPROVEDBY" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_EMPATTENDANCEID">
-    <End Role="MT_EMPLOYEEDETAILS" Type="LMSDBModel.EmpDetails" Multiplicity="1" />
-    <End Role="TR_EMPATTENDANCE" Type="LMSDBModel.EmpAttendance" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="MT_EMPLOYEEDETAILS">
-        <PropertyRef Name="EMP_ID" />
-      </Principal>
-      <Dependent Role="TR_EMPATTENDANCE">
-        <PropertyRef Name="EMP_ID" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_EMPLEAVEID">
-    <End Role="MT_EMPLOYEEDETAILS" Type="LMSDBModel.EmpDetails" Multiplicity="1" />
-    <End Role="TR_EMPLEAVE" Type="LMSDBModel.EmployeeLeave" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="MT_EMPLOYEEDETAILS">
-        <PropertyRef Name="EMP_ID" />
-      </Principal>
-      <Dependent Role="TR_EMPLEAVE">
-        <PropertyRef Name="EMP_ID" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_JOBDETAILSID">
-    <End Role="MT_JOBDESCRIPTION" Type="LMSDBModel.JobDescription" Multiplicity="1" />
-    <End Role="MT_EMPLOYEEDETAILS" Type="LMSDBModel.EmpDetails" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="MT_JOBDESCRIPTION">
-        <PropertyRef Name="JOB_ID" />
-      </Principal>
-      <Dependent Role="MT_EMPLOYEEDETAILS">
-        <PropertyRef Name="JOB_ID" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_LEAVEEMPID">
-    <End Role="MT_EMPLOYEEDETAILS" Type="LMSDBModel.EmpDetails" Multiplicity="1" />
-    <End Role="MT_LEAVE" Type="LMSDBModel.Leave" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="MT_EMPLOYEEDETAILS">
-        <PropertyRef Name="EMP_ID" />
-      </Principal>
-      <Dependent Role="MT_LEAVE">
-        <PropertyRef Name="LEAVE_APPROVAL" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -250,85 +98,18 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK_JOBLEAVEID">
-    <End Role="MT_JOBDESCRIPTION" Type="LMSDBModel.JobDescription" Multiplicity="1" />
-    <End Role="TR_EMPLEAVE" Type="LMSDBModel.EmployeeLeave" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="MT_JOBDESCRIPTION">
-        <PropertyRef Name="JOB_ID" />
-      </Principal>
-      <Dependent Role="TR_EMPLEAVE">
-        <PropertyRef Name="JOB_ID" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_LEAVEJOBID">
-    <End Role="MT_JOBDESCRIPTION" Type="LMSDBModel.JobDescription" Multiplicity="1" />
-    <End Role="MT_LEAVE" Type="LMSDBModel.Leave" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="MT_JOBDESCRIPTION">
-        <PropertyRef Name="JOB_ID" />
-      </Principal>
-      <Dependent Role="MT_LEAVE">
-        <PropertyRef Name="JOB_ID" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_EMPLEAVETYPEID">
-    <End Role="MT_LEAVE" Type="LMSDBModel.Leave" Multiplicity="1" />
-    <End Role="TR_EMPLEAVE" Type="LMSDBModel.EmployeeLeave" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="MT_LEAVE">
-        <PropertyRef Name="LEAVE_ID" />
-      </Principal>
-      <Dependent Role="TR_EMPLEAVE">
-        <PropertyRef Name="LEAVE_ID" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
   <EntityContainer Name="LMSDBEntities" annotation:LazyLoadingEnabled="true">
     <EntitySet Name="Departments" EntityType="LMSDBModel.Department" />
-    <EntitySet Name="EmpDetails" EntityType="LMSDBModel.EmpDetails" />
     <EntitySet Name="JobDescriptions" EntityType="LMSDBModel.JobDescription" />
-    <EntitySet Name="Leaves" EntityType="LMSDBModel.Leave" />
     <EntitySet Name="Attendances" EntityType="LMSDBModel.Attendance" />
     <EntitySet Name="EmpAttendances" EntityType="LMSDBModel.EmpAttendance" />
-    <EntitySet Name="EmployeeLeaves" EntityType="LMSDBModel.EmployeeLeave" />
     <AssociationSet Name="FK_DEPATTENDANCEID" Association="Self.FK_DEPATTENDANCEID">
       <End Role="MT_DEPARTMENT" EntitySet="Departments" />
       <End Role="TR_EMPATTENDANCE" EntitySet="EmpAttendances" />
     </AssociationSet>
-    <AssociationSet Name="FK_DEPDETAILSID" Association="Self.FK_DEPDETAILSID">
-      <End Role="MT_DEPARTMENT" EntitySet="Departments" />
-      <End Role="MT_EMPLOYEEDETAILS" EntitySet="EmpDetails" />
-    </AssociationSet>
     <AssociationSet Name="FK_DEPID" Association="Self.FK_DEPID">
       <End Role="MT_DEPARTMENT" EntitySet="Departments" />
       <End Role="MT_ATTENDANCE" EntitySet="Attendances" />
-    </AssociationSet>
-    <AssociationSet Name="FK_DEPLEAVEID" Association="Self.FK_DEPLEAVEID">
-      <End Role="MT_DEPARTMENT" EntitySet="Departments" />
-      <End Role="TR_EMPLEAVE" EntitySet="EmployeeLeaves" />
-    </AssociationSet>
-    <AssociationSet Name="FK_APPROVALEMPID" Association="Self.FK_APPROVALEMPID">
-      <End Role="MT_EMPLOYEEDETAILS" EntitySet="EmpDetails" />
-      <End Role="TR_EMPLEAVE" EntitySet="EmployeeLeaves" />
-    </AssociationSet>
-    <AssociationSet Name="FK_EMPATTENDANCEID" Association="Self.FK_EMPATTENDANCEID">
-      <End Role="MT_EMPLOYEEDETAILS" EntitySet="EmpDetails" />
-      <End Role="TR_EMPATTENDANCE" EntitySet="EmpAttendances" />
-    </AssociationSet>
-    <AssociationSet Name="FK_EMPLEAVEID" Association="Self.FK_EMPLEAVEID">
-      <End Role="MT_EMPLOYEEDETAILS" EntitySet="EmpDetails" />
-      <End Role="TR_EMPLEAVE" EntitySet="EmployeeLeaves" />
-    </AssociationSet>
-    <AssociationSet Name="FK_JOBDETAILSID" Association="Self.FK_JOBDETAILSID">
-      <End Role="MT_JOBDESCRIPTION" EntitySet="JobDescriptions" />
-      <End Role="MT_EMPLOYEEDETAILS" EntitySet="EmpDetails" />
-    </AssociationSet>
-    <AssociationSet Name="FK_LEAVEEMPID" Association="Self.FK_LEAVEEMPID">
-      <End Role="MT_EMPLOYEEDETAILS" EntitySet="EmpDetails" />
-      <End Role="MT_LEAVE" EntitySet="Leaves" />
     </AssociationSet>
     <AssociationSet Name="FK_JOBATTENDANCEID" Association="Self.FK_JOBATTENDANCEID">
       <End Role="MT_JOBDESCRIPTION" EntitySet="JobDescriptions" />
@@ -338,17 +119,257 @@
       <End Role="MT_JOBDESCRIPTION" EntitySet="JobDescriptions" />
       <End Role="MT_ATTENDANCE" EntitySet="Attendances" />
     </AssociationSet>
-    <AssociationSet Name="FK_JOBLEAVEID" Association="Self.FK_JOBLEAVEID">
-      <End Role="MT_JOBDESCRIPTION" EntitySet="JobDescriptions" />
+    <EntitySet Name="UserActivations" EntityType="LMSDBModel.UserActivation" />
+    <EntitySet Name="Roles" EntityType="LMSDBModel.Role" />
+    <EntitySet Name="Users" EntityType="LMSDBModel.User" />
+    <AssociationSet Name="FK_Users_Roles" Association="LMSDBModel.FK_Users_Roles">
+      <End Role="Role" EntitySet="Roles" />
+      <End Role="User" EntitySet="Users" />
+    </AssociationSet>
+    <EntitySet Name="Leaves" EntityType="LMSDBModel.Leave" />
+    <EntitySet Name="AllEmployeeDetails" EntityType="LMSDBModel.AllEmployeeDetails" />
+    <AssociationSet Name="FK_DEPDETAILSID" Association="LMSDBModel.FK_DEPDETAILSID">
+      <End Role="Department" EntitySet="Departments" />
+      <End Role="MT_EMPLOYEEDETAILS" EntitySet="AllEmployeeDetails" />
+    </AssociationSet>
+    <AssociationSet Name="FK_EMPATTENDANCEID" Association="LMSDBModel.FK_EMPATTENDANCEID">
+      <End Role="MT_EMPLOYEEDETAILS" EntitySet="AllEmployeeDetails" />
+      <End Role="EmpAttendance" EntitySet="EmpAttendances" />
+    </AssociationSet>
+    <AssociationSet Name="FK_JOBDETAILSID" Association="LMSDBModel.FK_JOBDETAILSID">
+      <End Role="JobDescription" EntitySet="JobDescriptions" />
+      <End Role="MT_EMPLOYEEDETAILS" EntitySet="AllEmployeeDetails" />
+    </AssociationSet>
+    <EntitySet Name="Calendars" EntityType="LMSDBModel.Calendar" />
+    <EntitySet Name="EmployeeLeaves" EntityType="LMSDBModel.EmployeeLeave" />
+    <AssociationSet Name="FK_DEPLEAVEID" Association="LMSDBModel.FK_DEPLEAVEID">
+      <End Role="Department" EntitySet="Departments" />
       <End Role="TR_EMPLEAVE" EntitySet="EmployeeLeaves" />
     </AssociationSet>
-    <AssociationSet Name="FK_LEAVEJOBID" Association="Self.FK_LEAVEJOBID">
-      <End Role="MT_JOBDESCRIPTION" EntitySet="JobDescriptions" />
-      <End Role="MT_LEAVE" EntitySet="Leaves" />
+    <AssociationSet Name="FK_APPROVALEMPID" Association="LMSDBModel.FK_APPROVALEMPID">
+      <End Role="AllEmployeeDetails" EntitySet="AllEmployeeDetails" />
+      <End Role="TR_EMPLEAVE" EntitySet="EmployeeLeaves" />
     </AssociationSet>
-    <AssociationSet Name="FK_EMPLEAVETYPEID" Association="Self.FK_EMPLEAVETYPEID">
-      <End Role="MT_LEAVE" EntitySet="Leaves" />
+    <AssociationSet Name="FK_EMPLEAVEID" Association="LMSDBModel.FK_EMPLEAVEID">
+      <End Role="AllEmployeeDetails" EntitySet="AllEmployeeDetails" />
+      <End Role="TR_EMPLEAVE" EntitySet="EmployeeLeaves" />
+    </AssociationSet>
+    <AssociationSet Name="FK_JOBLEAVEID" Association="LMSDBModel.FK_JOBLEAVEID">
+      <End Role="JobDescription" EntitySet="JobDescriptions" />
+      <End Role="TR_EMPLEAVE" EntitySet="EmployeeLeaves" />
+    </AssociationSet>
+    <AssociationSet Name="FK_EMPLEAVETYPEID" Association="LMSDBModel.FK_EMPLEAVETYPEID">
+      <End Role="Leave" EntitySet="Leaves" />
       <End Role="TR_EMPLEAVE" EntitySet="EmployeeLeaves" />
     </AssociationSet>
   </EntityContainer>
+  <EntityType Name="UserActivation">
+    <Key>
+      <PropertyRef Name="UserId" />
+    </Key>
+    <Property Name="UserId" Type="Int32" Nullable="false" />
+    <Property Name="ActivationCode" Type="Guid" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Role">
+    <Key>
+      <PropertyRef Name="RoleId" />
+    </Key>
+    <Property Name="RoleId" Type="Int32" Nullable="false" />
+    <Property Name="RoleName" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="Authorization" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="Users" Relationship="LMSDBModel.FK_Users_Roles" FromRole="Role" ToRole="User" />
+  </EntityType>
+  <EntityType Name="User">
+    <Key>
+      <PropertyRef Name="UserId" />
+    </Key>
+    <Property Name="UserId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Username" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="Password" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="Email" Type="String" MaxLength="200" FixedLength="true" Unicode="true" />
+    <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+    <Property Name="LastLoginDate" Type="DateTime" Precision="3" />
+    <Property Name="RoleId" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Role" Relationship="LMSDBModel.FK_Users_Roles" FromRole="User" ToRole="Role" />
+  </EntityType>
+  <Association Name="FK_Users_Roles">
+    <End Type="LMSDBModel.Role" Role="Role" Multiplicity="1" />
+    <End Type="LMSDBModel.User" Role="User" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Role">
+        <PropertyRef Name="RoleId" />
+      </Principal>
+      <Dependent Role="User">
+        <PropertyRef Name="RoleId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="Leave">
+    <Key>
+      <PropertyRef Name="LEAVE_ID" />
+    </Key>
+    <Property Name="LEAVE_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="LEAVE_TYPE" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="TR_EMPLEAVE" Relationship="LMSDBModel.FK_EMPLEAVETYPEID" FromRole="Leave" ToRole="TR_EMPLEAVE" />
+  </EntityType>
+  <EntityType Name="AllEmployeeDetails">
+    <Key>
+      <PropertyRef Name="EmployeeID" />
+    </Key>
+    <Property Name="EmployeeID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="DepartmentId" Type="Int32" Nullable="false" />
+    <Property Name="JobId" Type="Int32" Nullable="false" />
+    <Property Name="EmployeeCode" Type="Int32" />
+    <Property Name="FirstName" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="LastName" Type="String" MaxLength="100" FixedLength="true" Unicode="true" />
+    <Property Name="FullName" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="UserName" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="Address" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Email" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="Mobile" Type="Int32" />
+    <Property Name="PhoneNo" Type="Int32" />
+    <Property Name="JoiningDate" Type="DateTime" Precision="3" />
+    <Property Name="Gender" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="DOB" Type="DateTime" Precision="3" />
+    <Property Name="PersonalEmailId" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="ReportingManager" Type="Int32" Nullable="false" />
+    <Property Name="RoleId" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="MT_DEPARTMENT" Relationship="LMSDBModel.FK_DEPDETAILSID" FromRole="MT_EMPLOYEEDETAILS" ToRole="Department" />
+    <NavigationProperty Name="TR_EMPATTENDANCE" Relationship="LMSDBModel.FK_EMPATTENDANCEID" FromRole="MT_EMPLOYEEDETAILS" ToRole="EmpAttendance" />
+    <NavigationProperty Name="MT_JOBDESCRIPTION" Relationship="LMSDBModel.FK_JOBDETAILSID" FromRole="MT_EMPLOYEEDETAILS" ToRole="JobDescription" />
+    <NavigationProperty Name="TR_EMPLEAVE" Relationship="LMSDBModel.FK_APPROVALEMPID" FromRole="AllEmployeeDetails" ToRole="TR_EMPLEAVE" />
+    <NavigationProperty Name="TR_EMPLEAVE1" Relationship="LMSDBModel.FK_EMPLEAVEID" FromRole="AllEmployeeDetails" ToRole="TR_EMPLEAVE" />
+  </EntityType>
+  <Association Name="FK_DEPDETAILSID">
+    <End Type="LMSDBModel.Department" Role="Department" Multiplicity="1" />
+    <End Type="LMSDBModel.AllEmployeeDetails" Role="MT_EMPLOYEEDETAILS" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Department">
+        <PropertyRef Name="DEP_ID" />
+      </Principal>
+      <Dependent Role="MT_EMPLOYEEDETAILS">
+        <PropertyRef Name="DepartmentId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_EMPATTENDANCEID">
+    <End Type="LMSDBModel.AllEmployeeDetails" Role="MT_EMPLOYEEDETAILS" Multiplicity="1" />
+    <End Type="LMSDBModel.EmpAttendance" Role="EmpAttendance" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="MT_EMPLOYEEDETAILS">
+        <PropertyRef Name="EmployeeID" />
+      </Principal>
+      <Dependent Role="EmpAttendance">
+        <PropertyRef Name="EMP_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_JOBDETAILSID">
+    <End Type="LMSDBModel.JobDescription" Role="JobDescription" Multiplicity="1" />
+    <End Type="LMSDBModel.AllEmployeeDetails" Role="MT_EMPLOYEEDETAILS" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="JobDescription">
+        <PropertyRef Name="JOB_ID" />
+      </Principal>
+      <Dependent Role="MT_EMPLOYEEDETAILS">
+        <PropertyRef Name="JobId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="Calendar">
+    <Key>
+      <PropertyRef Name="CalendarId" />
+    </Key>
+    <Property Name="CalendarId" Type="Int32" Nullable="false" />
+    <Property Name="Date" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="DateType" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="EmployeeLeave">
+    <Key>
+      <PropertyRef Name="EmployeeleaveID" />
+    </Key>
+    <Property Name="EmployeeleaveID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="EmployeeId" Type="Int32" Nullable="false" />
+    <Property Name="DepartmentId" Type="Int32" Nullable="false" />
+    <Property Name="JobId" Type="Int32" Nullable="false" />
+    <Property Name="LeaveId" Type="Int32" Nullable="false" />
+    <Property Name="RemainingDays" Type="Int32" />
+    <Property Name="LeaveApprovalStatus" Type="Boolean" />
+    <Property Name="LeaveStatus" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="LeaveApprovedBy" Type="Int32" Nullable="false" />
+    <Property Name="LeaveReason" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="LeaveFromdate" Type="DateTime" Precision="3" />
+    <Property Name="LeaveToDate" Type="DateTime" Precision="3" />
+    <Property Name="ReJoiningdate" Type="DateTime" Precision="3" />
+    <Property Name="PaidLeave" Type="Int32" />
+    <Property Name="UnPaidLeave" Type="Int32" />
+    <Property Name="WeekendORHolidaysInLeave" Type="Int32" />
+    <Property Name="TotaldaysOnLeaveCurrent" Type="Int32" />
+    <Property Name="TotalLeaveTakenInYear" Type="Int32" />
+    <NavigationProperty Name="MT_DEPARTMENT" Relationship="LMSDBModel.FK_DEPLEAVEID" FromRole="TR_EMPLEAVE" ToRole="Department" />
+    <NavigationProperty Name="MT_EMPLOYEEDETAILS" Relationship="LMSDBModel.FK_APPROVALEMPID" FromRole="TR_EMPLEAVE" ToRole="AllEmployeeDetails" />
+    <NavigationProperty Name="MT_EMPLOYEEDETAILS1" Relationship="LMSDBModel.FK_EMPLEAVEID" FromRole="TR_EMPLEAVE" ToRole="AllEmployeeDetails" />
+    <NavigationProperty Name="MT_JOBDESCRIPTION" Relationship="LMSDBModel.FK_JOBLEAVEID" FromRole="TR_EMPLEAVE" ToRole="JobDescription" />
+    <NavigationProperty Name="MT_LEAVE" Relationship="LMSDBModel.FK_EMPLEAVETYPEID" FromRole="TR_EMPLEAVE" ToRole="Leave" />
+  </EntityType>
+  <Association Name="FK_DEPLEAVEID">
+    <End Type="LMSDBModel.Department" Role="Department" Multiplicity="1" />
+    <End Type="LMSDBModel.EmployeeLeave" Role="TR_EMPLEAVE" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Department">
+        <PropertyRef Name="DEP_ID" />
+      </Principal>
+      <Dependent Role="TR_EMPLEAVE">
+        <PropertyRef Name="DepartmentId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_APPROVALEMPID">
+    <End Type="LMSDBModel.AllEmployeeDetails" Role="AllEmployeeDetails" Multiplicity="1" />
+    <End Type="LMSDBModel.EmployeeLeave" Role="TR_EMPLEAVE" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AllEmployeeDetails">
+        <PropertyRef Name="EmployeeID" />
+      </Principal>
+      <Dependent Role="TR_EMPLEAVE">
+        <PropertyRef Name="LeaveApprovedBy" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_EMPLEAVEID">
+    <End Type="LMSDBModel.AllEmployeeDetails" Role="AllEmployeeDetails" Multiplicity="1" />
+    <End Type="LMSDBModel.EmployeeLeave" Role="TR_EMPLEAVE" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AllEmployeeDetails">
+        <PropertyRef Name="EmployeeID" />
+      </Principal>
+      <Dependent Role="TR_EMPLEAVE">
+        <PropertyRef Name="EmployeeId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_JOBLEAVEID">
+    <End Type="LMSDBModel.JobDescription" Role="JobDescription" Multiplicity="1" />
+    <End Type="LMSDBModel.EmployeeLeave" Role="TR_EMPLEAVE" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="JobDescription">
+        <PropertyRef Name="JOB_ID" />
+      </Principal>
+      <Dependent Role="TR_EMPLEAVE">
+        <PropertyRef Name="JobId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_EMPLEAVETYPEID">
+    <End Type="LMSDBModel.Leave" Role="Leave" Multiplicity="1" />
+    <End Type="LMSDBModel.EmployeeLeave" Role="TR_EMPLEAVE" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Leave">
+        <PropertyRef Name="LEAVE_ID" />
+      </Principal>
+      <Dependent Role="TR_EMPLEAVE">
+        <PropertyRef Name="LeaveId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
 </Schema>

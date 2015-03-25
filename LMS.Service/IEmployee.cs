@@ -17,21 +17,25 @@ namespace LMS.Service
         List<Attendance> getEmployeesAttendance(int Id);
         List<Department> getAllDepartment();
         List<JobDescription> getAlljobDescription();
-        
-
+        List<EmployeeLeave> getLeaveRequest(int employeeId);
+  
         //insert into employee
         void InsertIntoEmployee(AllEmployeeDetails Emp);
+        void InsertIntoEmployeeLeave(EmployeeLeave Empleave);
 
         ////update into employee
         void EmployeeLogin(string Username,string Password);
 
-        void getEmployee(int Id);
+        AllEmployeeDetails getEmployee(int Id);
 
         void getEmployeeAttendance(int Id);
 
         void getEmployeeLeave(int Id);
-        
-       
+
+        void updateEmployee(AllEmployeeDetails Emp);
+        AllEmployeeDetails getNewemployee(int Id);
+
+        EmployeeLeave getLeave(int Id);
 
 
         ////delete employee

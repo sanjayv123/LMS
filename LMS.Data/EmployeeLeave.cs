@@ -14,17 +14,24 @@ namespace LMS.Data
     
     public partial class EmployeeLeave
     {
-        public int EMP_ID { get; set; }
-        public int DEP_ID { get; set; }
-        public int JOB_ID { get; set; }
-        public int LEAVE_ID { get; set; }
-        public Nullable<int> LEAVE_REMAININGDAYS { get; set; }
-        public string LEAVE_STATUS { get; set; }
-        public int LEAVE_APPROVEDBY { get; set; }
-        public string LEAVE_REASON { get; set; }
-        public Nullable<System.DateTime> LEAVE_FROMDATE { get; set; }
-        public Nullable<System.DateTime> LEAVE_TODATE { get; set; }
-        public Nullable<System.DateTime> LEAVE_JOININGDATE { get; set; }
+        public int EmployeeleaveID { get; set; }
+        public int EmployeeId { get; set; }
+        public int DepartmentId { get; set; }
+        public int JobId { get; set; }
+        public int LeaveId { get; set; }
+        public Nullable<int> RemainingDays { get; set; }
+        public Nullable<bool> LeaveApprovalStatus { get; set; }
+        public string LeaveStatus { get; set; }
+        public int LeaveApprovedBy { get; set; }
+        public string LeaveReason { get; set; }
+        public Nullable<System.DateTime> LeaveFromdate { get; set; }
+        public Nullable<System.DateTime> LeaveToDate { get; set; }
+        public Nullable<System.DateTime> ReJoiningdate { get; set; }
+        public Nullable<int> PaidLeave { get; set; }
+        public Nullable<int> UnPaidLeave { get; set; }
+        public Nullable<int> WeekendORHolidaysInLeave { get; set; }
+        public Nullable<int> TotaldaysOnLeaveCurrent { get; set; }
+        public Nullable<int> TotalLeaveTakenInYear { get; set; }
     
         public virtual Department MT_DEPARTMENT { get; set; }
         public virtual AllEmployeeDetails MT_EMPLOYEEDETAILS { get; set; }

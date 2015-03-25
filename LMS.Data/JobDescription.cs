@@ -16,20 +16,18 @@ namespace LMS.Data
     {
         public JobDescription()
         {
-            this.MT_EMPLOYEEDETAILS = new HashSet<AllEmployeeDetails>();
             this.TR_EMPATTENDANCE = new HashSet<EmpAttendance>();
             this.MT_ATTENDANCE = new HashSet<Attendance>();
+            this.MT_EMPLOYEEDETAILS = new HashSet<AllEmployeeDetails>();
             this.TR_EMPLEAVE = new HashSet<EmployeeLeave>();
-            this.MT_LEAVE = new HashSet<Leave>();
         }
     
         public int JOB_ID { get; set; }
         public string JOB_ROLE { get; set; }
     
-        public virtual ICollection<AllEmployeeDetails> MT_EMPLOYEEDETAILS { get; set; }
         public virtual ICollection<EmpAttendance> TR_EMPATTENDANCE { get; set; }
         public virtual ICollection<Attendance> MT_ATTENDANCE { get; set; }
+        public virtual ICollection<AllEmployeeDetails> MT_EMPLOYEEDETAILS { get; set; }
         public virtual ICollection<EmployeeLeave> TR_EMPLEAVE { get; set; }
-        public virtual ICollection<Leave> MT_LEAVE { get; set; }
     }
 }

@@ -38,6 +38,10 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\EntityFramework.6.1.1\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
@@ -57,24 +61,140 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Calendar.aspx" />
+    <Content Include="css\bootstrap.min.css" />
+    <Content Include="css\style.css" />
+    <Content Include="datetimepicker\calendar.gif" />
+    <Content Include="datetimepicker\flora.datepicker.css" />
+    <Content Include="datetimepicker\jquery-latest.js" />
+    <Content Include="datetimepicker\ui.datepicker.css" />
+    <Content Include="datetimepicker\ui.datepicker.js" />
+    <Content Include="EmployeeForm.aspx" />
+    <Content Include="EmployeeLeaveApply.aspx" />
+    <Content Include="EmployeeLeaveApproval.aspx" />
+    <Content Include="EmployeeLeaveDetails.aspx" />
+    <Content Include="EmployeeList.aspx" />
+    <Content Include="EmployeeMaster.Master" />
+    <Content Include="EmployeeProfile.aspx" />
+    <Content Include="EmployeeView.aspx" />
+    <Content Include="ErrorPage.aspx" />
+    <Content Include="fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="datetimepicker\jquery-latest.js__" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
     <None Include="Web.Release.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
+    <Content Include="Web.sitemap" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="EmployeeForm.aspx" />
-    <Content Include="Web.config" />
+    <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Global.asax" />
+    <Content Include="Home.aspx" />
+    <Content Include="images\edit.png" />
+    <Content Include="images\logout.png" />
+    <Content Include="images\settings.png" />
+    <Content Include="images\trash.gif" />
+    <Content Include="images\select.png" />
+    <Content Include="js\bootstrap.min.js" />
+    <Content Include="js\jquery-1.9.1.js" />
+    <Content Include="ListEmployee.aspx" />
+    <Content Include="Login.aspx" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Calendar.aspx.cs">
+      <DependentUpon>Calendar.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Calendar.aspx.designer.cs">
+      <DependentUpon>Calendar.aspx</DependentUpon>
+    </Compile>
     <Compile Include="EmployeeForm.aspx.cs">
       <DependentUpon>EmployeeForm.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="EmployeeForm.aspx.designer.cs">
       <DependentUpon>EmployeeForm.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="EmployeeLeaveApply.aspx.cs">
+      <DependentUpon>EmployeeLeaveApply.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="EmployeeLeaveApply.aspx.designer.cs">
+      <DependentUpon>EmployeeLeaveApply.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="EmployeeLeaveApproval.aspx.cs">
+      <DependentUpon>EmployeeLeaveApproval.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="EmployeeLeaveApproval.aspx.designer.cs">
+      <DependentUpon>EmployeeLeaveApproval.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="EmployeeLeaveDetails.aspx.cs">
+      <DependentUpon>EmployeeLeaveDetails.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="EmployeeLeaveDetails.aspx.designer.cs">
+      <DependentUpon>EmployeeLeaveDetails.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="EmployeeList.aspx.cs">
+      <DependentUpon>EmployeeList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="EmployeeList.aspx.designer.cs">
+      <DependentUpon>EmployeeList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="EmployeeMaster.Master.cs">
+      <DependentUpon>EmployeeMaster.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="EmployeeMaster.Master.designer.cs">
+      <DependentUpon>EmployeeMaster.Master</DependentUpon>
+    </Compile>
+    <Compile Include="EmployeeProfile.aspx.cs">
+      <DependentUpon>EmployeeProfile.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="EmployeeProfile.aspx.designer.cs">
+      <DependentUpon>EmployeeProfile.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="EmployeeView.aspx.cs">
+      <DependentUpon>EmployeeView.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="EmployeeView.aspx.designer.cs">
+      <DependentUpon>EmployeeView.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ErrorPage.aspx.cs">
+      <DependentUpon>ErrorPage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ErrorPage.aspx.designer.cs">
+      <DependentUpon>ErrorPage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Home.aspx.cs">
+      <DependentUpon>Home.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Home.aspx.designer.cs">
+      <DependentUpon>Home.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Login.aspx.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Login.aspx.designer.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -88,6 +208,7 @@
       <Name>LMS.Service</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>

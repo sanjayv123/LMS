@@ -17,8 +17,8 @@ namespace LMS.Data
         public Department()
         {
             this.TR_EMPATTENDANCE = new HashSet<EmpAttendance>();
-            this.MT_EMPLOYEEDETAILS = new HashSet<AllEmployeeDetails>();
             this.MT_ATTENDANCE = new HashSet<Attendance>();
+            this.MT_EMPLOYEEDETAILS = new HashSet<AllEmployeeDetails>();
             this.TR_EMPLEAVE = new HashSet<EmployeeLeave>();
         }
     
@@ -26,8 +26,8 @@ namespace LMS.Data
         public int DEP_ID { get; set; }
     
         public virtual ICollection<EmpAttendance> TR_EMPATTENDANCE { get; set; }
-        public virtual ICollection<AllEmployeeDetails> MT_EMPLOYEEDETAILS { get; set; }
         public virtual ICollection<Attendance> MT_ATTENDANCE { get; set; }
+        public virtual ICollection<AllEmployeeDetails> MT_EMPLOYEEDETAILS { get; set; }
         public virtual ICollection<EmployeeLeave> TR_EMPLEAVE { get; set; }
     }
 }

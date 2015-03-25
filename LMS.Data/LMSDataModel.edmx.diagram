@@ -6,27 +6,30 @@
     <edmx:Diagrams>
       <Diagram DiagramId="68eb3b246d274395af8bf0ff65adb1ec" Name="Diagram1">
         <EntityTypeShape EntityType="LMSDBModel.Department" Width="1.5" PointX="0.75" PointY="3.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="LMSDBModel.EmpDetails" Width="1.5" PointX="3" PointY="6.25" IsExpanded="true" />
         <EntityTypeShape EntityType="LMSDBModel.JobDescription" Width="1.5" PointX="0.75" PointY="7.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="LMSDBModel.Leave" Width="1.5" PointX="8.25" PointY="7.125" IsExpanded="true" />
         <EntityTypeShape EntityType="LMSDBModel.Attendance" Width="1.5" PointX="6" PointY="7.625" IsExpanded="true" />
         <EntityTypeShape EntityType="LMSDBModel.EmpAttendance" Width="1.5" PointX="5.25" PointY="3.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="LMSDBModel.EmployeeLeave" Width="1.5" PointX="10.5" PointY="6.75" IsExpanded="true" />
         <AssociationConnector Association="LMSDBModel.FK_DEPATTENDANCEID" ManuallyRouted="false" />
-        <AssociationConnector Association="LMSDBModel.FK_DEPDETAILSID" ManuallyRouted="false" />
         <AssociationConnector Association="LMSDBModel.FK_DEPID" ManuallyRouted="false" />
-        <AssociationConnector Association="LMSDBModel.FK_DEPLEAVEID" ManuallyRouted="false" />
-        <AssociationConnector Association="LMSDBModel.FK_APPROVALEMPID" ManuallyRouted="false" />
-        <AssociationConnector Association="LMSDBModel.FK_EMPATTENDANCEID" ManuallyRouted="false" />
-        <AssociationConnector Association="LMSDBModel.FK_EMPLEAVEID" ManuallyRouted="false" />
-        <AssociationConnector Association="LMSDBModel.FK_JOBDETAILSID" ManuallyRouted="false" />
-        <AssociationConnector Association="LMSDBModel.FK_LEAVEEMPID" ManuallyRouted="false" />
         <AssociationConnector Association="LMSDBModel.FK_JOBATTENDANCEID" ManuallyRouted="false" />
         <AssociationConnector Association="LMSDBModel.FK_JOBID" ManuallyRouted="false" />
-        <AssociationConnector Association="LMSDBModel.FK_JOBLEAVEID" ManuallyRouted="false" />
-        <AssociationConnector Association="LMSDBModel.FK_LEAVEJOBID" ManuallyRouted="false" />
-        <AssociationConnector Association="LMSDBModel.FK_EMPLEAVETYPEID" ManuallyRouted="false" />
-      </Diagram>
+        <EntityTypeShape EntityType="LMSDBModel.UserActivation" Width="1.5" PointX="0.75" PointY="0.75" />
+        <EntityTypeShape EntityType="LMSDBModel.Role" Width="1.5" PointX="7.375" PointY="1.375" />
+        <EntityTypeShape EntityType="LMSDBModel.User" Width="1.5" PointX="9.625" PointY="1" />
+        <AssociationConnector Association="LMSDBModel.FK_Users_Roles" />
+        <EntityTypeShape EntityType="LMSDBModel.Leave" Width="1.5" PointX="7.375" PointY="4.875" />
+        <EntityTypeShape EntityType="LMSDBModel.AllEmployeeDetails" Width="1.5" PointX="3" PointY="4" />
+        <AssociationConnector Association="LMSDBModel.FK_DEPDETAILSID" />
+        <AssociationConnector Association="LMSDBModel.FK_EMPATTENDANCEID" />
+        <AssociationConnector Association="LMSDBModel.FK_JOBDETAILSID" />
+        <EntityTypeShape EntityType="LMSDBModel.Calendar" Width="1.5" PointX="3.375" PointY="0.75" />
+        <EntityTypeShape EntityType="LMSDBModel.EmployeeLeave" Width="1.5" PointX="9.625" PointY="5" />
+        <AssociationConnector Association="LMSDBModel.FK_DEPLEAVEID" />
+        <AssociationConnector Association="LMSDBModel.FK_APPROVALEMPID" />
+        <AssociationConnector Association="LMSDBModel.FK_EMPLEAVEID" />
+        <AssociationConnector Association="LMSDBModel.FK_JOBLEAVEID" />
+        <AssociationConnector Association="LMSDBModel.FK_EMPLEAVETYPEID" />
+        </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
 </edmx:Edmx>

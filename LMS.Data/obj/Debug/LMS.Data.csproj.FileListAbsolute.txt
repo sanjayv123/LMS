@@ -8,3 +8,41 @@ c:\Users\sanjayp\documents\visual studio 2013\Projects\Home\LMS.Data\bin\Debug\E
 c:\Users\sanjayp\documents\visual studio 2013\Projects\Home\LMS.Data\obj\Debug\LMS.Data.csprojResolveAssemblyReference.cache
 c:\Users\sanjayp\documents\visual studio 2013\Projects\Home\LMS.Data\obj\Debug\LMS.Data.dll
 c:\Users\sanjayp\documents\visual studio 2013\Projects\Home\LMS.Data\obj\Debug\LMS.Data.pdb
+D:\Software\LMS\LMS\LMS.Data\bin\Debug\LMS.Data.dll.config
+D:\Software\LMS\LMS\LMS.Data\bin\Debug\LMS.Data.dll
+D:\Software\LMS\LMS\LMS.Data\bin\Debug\LMS.Data.pdb
+D:\Software\LMS\LMS\LMS.Data\bin\Debug\EntityFramework.dll
+D:\Software\LMS\LMS\LMS.Data\bin\Debug\EntityFramework.SqlServer.dll
+D:\Software\LMS\LMS\LMS.Data\bin\Debug\EntityFramework.xml
+D:\Software\LMS\LMS\LMS.Data\bin\Debug\EntityFramework.SqlServer.xml
+D:\Software\LMS\LMS\LMS.Data\obj\Debug\LMS.Data.csprojResolveAssemblyReference.cache
+D:\Software\LMS\LMS\LMS.Data\obj\Debug\LMS.Data.dll
+D:\Software\LMS\LMS\LMS.Data\obj\Debug\LMS.Data.pdb
+F:\LMS\LMS\LMS.Data\bin\Debug\LMS.Data.dll.config
+F:\LMS\LMS\LMS.Data\bin\Debug\LMS.Data.dll
+F:\LMS\LMS\LMS.Data\bin\Debug\LMS.Data.pdb
+F:\LMS\LMS\LMS.Data\bin\Debug\EntityFramework.dll
+F:\LMS\LMS\LMS.Data\bin\Debug\EntityFramework.SqlServer.dll
+F:\LMS\LMS\LMS.Data\bin\Debug\EntityFramework.xml
+F:\LMS\LMS\LMS.Data\bin\Debug\EntityFramework.SqlServer.xml
+F:\LMS\LMS\LMS.Data\obj\Debug\LMS.Data.dll
+F:\LMS\LMS\LMS.Data\obj\Debug\LMS.Data.pdb
+D:\New LMS\LMS_12_03_2015\LMS\LMS\LMS.Data\bin\Debug\LMS.Data.dll.config
+D:\New LMS\LMS_12_03_2015\LMS\LMS\LMS.Data\bin\Debug\LMS.Data.dll
+D:\New LMS\LMS_12_03_2015\LMS\LMS\LMS.Data\bin\Debug\LMS.Data.pdb
+D:\New LMS\LMS_12_03_2015\LMS\LMS\LMS.Data\bin\Debug\EntityFramework.dll
+D:\New LMS\LMS_12_03_2015\LMS\LMS\LMS.Data\bin\Debug\EntityFramework.SqlServer.dll
+D:\New LMS\LMS_12_03_2015\LMS\LMS\LMS.Data\bin\Debug\EntityFramework.xml
+D:\New LMS\LMS_12_03_2015\LMS\LMS\LMS.Data\bin\Debug\EntityFramework.SqlServer.xml
+D:\New LMS\LMS_12_03_2015\LMS\LMS\LMS.Data\obj\Debug\LMS.Data.dll
+D:\New LMS\LMS_12_03_2015\LMS\LMS\LMS.Data\obj\Debug\LMS.Data.pdb
+G:\SanjayWorkArea\LMS\LMS\LMS.Data\bin\Debug\LMS.Data.dll.config
+G:\SanjayWorkArea\LMS\LMS\LMS.Data\bin\Debug\LMS.Data.dll
+G:\SanjayWorkArea\LMS\LMS\LMS.Data\bin\Debug\LMS.Data.pdb
+G:\SanjayWorkArea\LMS\LMS\LMS.Data\bin\Debug\EntityFramework.dll
+G:\SanjayWorkArea\LMS\LMS\LMS.Data\bin\Debug\EntityFramework.SqlServer.dll
+G:\SanjayWorkArea\LMS\LMS\LMS.Data\bin\Debug\EntityFramework.xml
+G:\SanjayWorkArea\LMS\LMS\LMS.Data\bin\Debug\EntityFramework.SqlServer.xml
+G:\SanjayWorkArea\LMS\LMS\LMS.Data\obj\Debug\LMS.Data.dll
+G:\SanjayWorkArea\LMS\LMS\LMS.Data\obj\Debug\LMS.Data.pdb
+G:\SanjayWorkArea\LMS\LMS\LMS.Data\obj\Debug\LMS.Data.csprojResolveAssemblyReference.cache

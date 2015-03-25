@@ -22,7 +22,7 @@ namespace LMS.Data
         public Nullable<System.DateTime> ATT_DATE { get; set; }
     
         public virtual Department MT_DEPARTMENT { get; set; }
-        public virtual AllEmployeeDetails MT_EMPLOYEEDETAILS { get; set; }
         public virtual JobDescription MT_JOBDESCRIPTION { get; set; }
+        public virtual AllEmployeeDetails MT_EMPLOYEEDETAILS { get; set; }
     }
 }

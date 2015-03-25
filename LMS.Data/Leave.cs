@@ -21,15 +21,7 @@ namespace LMS.Data
     
         public int LEAVE_ID { get; set; }
         public string LEAVE_TYPE { get; set; }
-        public int JOB_ID { get; set; }
-        public string LEAVE_STATUS { get; set; }
-        public Nullable<int> LEAVE_HOLIDAY { get; set; }
-        public string LEAVE_WEEKOFF { get; set; }
-        public int LEAVE_APPROVAL { get; set; }
-        public Nullable<int> LEAVE_ONLEAVEDAYS { get; set; }
     
-        public virtual AllEmployeeDetails MT_EMPLOYEEDETAILS { get; set; }
-        public virtual JobDescription MT_JOBDESCRIPTION { get; set; }
         public virtual ICollection<EmployeeLeave> TR_EMPLEAVE { get; set; }
     }
 }

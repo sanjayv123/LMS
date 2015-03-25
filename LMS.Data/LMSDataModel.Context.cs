@@ -26,11 +26,15 @@ namespace LMS.Data
         }
     
         public virtual DbSet<Department> Departments { get; set; }
-        public virtual DbSet<AllEmployeeDetails> EmpDetails { get; set; }
         public virtual DbSet<JobDescription> JobDescriptions { get; set; }
-        public virtual DbSet<Leave> Leaves { get; set; }
         public virtual DbSet<Attendance> Attendances { get; set; }
         public virtual DbSet<EmpAttendance> EmpAttendances { get; set; }
+        public virtual DbSet<UserActivation> UserActivations { get; set; }
+        public virtual DbSet<Role> Roles { get; set; }
+        public virtual DbSet<User> Users { get; set; }
+        public virtual DbSet<Leave> Leaves { get; set; }
+        public virtual DbSet<AllEmployeeDetails> AllEmployeeDetails { get; set; }
+        public virtual DbSet<Calendar> Calendars { get; set; }
         public virtual DbSet<EmployeeLeave> EmployeeLeaves { get; set; }
     }
 }

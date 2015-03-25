@@ -51,16 +51,19 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AllEmployeeDetails.cs">
+      <DependentUpon>LMSDataModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Attendance.cs">
+      <DependentUpon>LMSDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Calendar.cs">
       <DependentUpon>LMSDataModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Department.cs">
       <DependentUpon>LMSDataModel.tt</DependentUpon>
     </Compile>
     <Compile Include="EmpAttendance.cs">
-      <DependentUpon>LMSDataModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="EmpDetails.cs">
       <DependentUpon>LMSDataModel.tt</DependentUpon>
     </Compile>
     <Compile Include="EmployeeLeave.cs">
@@ -88,6 +91,15 @@
       <DependentUpon>LMSDataModel.edmx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Role.cs">
+      <DependentUpon>LMSDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="User.cs">
+      <DependentUpon>LMSDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="UserActivation.cs">
+      <DependentUpon>LMSDataModel.tt</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <EntityDeploy Include="LMSDataModel.edmx">
