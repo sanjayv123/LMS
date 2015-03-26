@@ -21,7 +21,7 @@ namespace LMS.Service.Helper
         public string LeaveReason { get; set; }
         public string LeaveApprovedBy { get; set; }     
         public DateTime? LeaveFromDateTime { get; set; }
-        public DateTime? LeaveTodatDateTime { get; set; }
+        public DateTime? LeaveToDateTime { get; set; }
         public DateTime? JoiningDateTime { get; set; }
         public int WeekendOrHolidayInLeave { get; set; }
         public int TotaldaysOnLeaveCurrent { get; set; }

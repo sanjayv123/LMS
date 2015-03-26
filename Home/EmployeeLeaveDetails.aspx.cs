@@ -30,5 +30,20 @@ namespace Home
                 }
             }
         }
+
+        protected void btnSearch_Click(object sender, EventArgs e)
+        {
+            employeeRepository = new EmployeeRepository();
+            var allEmployeeLeaveDetails = employeeRepository.getleaveDetailsForAllEmployee();
+            var   datefilter =
+                allEmployeeLeaveDetails.Where(a => a.LeaveFromDateTime >= Convert.ToDateTime(txtFromDate.Text) &&
+                                                   a.LeaveFromDateTime <= Convert.ToDateTime(txtToDate.Text));
+            if (allEmployeeLeaveDetails != null)
+            {
+                gvEmployeeLeave.DataSource = datefilter;
+                gvEmployeeLeave.DataBind();
+            }
+            
+        }
     }
 }

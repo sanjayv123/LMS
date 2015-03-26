@@ -65,9 +65,9 @@ namespace LMS.Service
 
         }
 
-        public int getEmployeeFromUserName(string userName)
+        public List<AllEmployeeDetails> getEmployeeFromUserName(string userName)
         {
-            return _dbcontext.AllEmployeeDetails.Where(e => e.UserName == userName).Select(e=>e.EmployeeID).FirstOrDefault();
+            return _dbcontext.AllEmployeeDetails.Where(e => e.UserName == userName).ToList();
 
         }
         public void updateEmployee(AllEmployeeDetails Emp)
@@ -96,7 +96,7 @@ namespace LMS.Service
 
         }
 
-       
+
 
         public void getEmployeeAttendance(int Id)
         {
@@ -134,19 +134,19 @@ namespace LMS.Service
                             LeaveId = l.EmployeeleaveID,
                             LeaveType = c.LEAVE_TYPE,
                             LeaveFromDateTime = l.LeaveFromdate,
-                            LeaveTodatDateTime = l.LeaveToDate,
+                            LeaveToDateTime = l.LeaveToDate,
                             JoiningDateTime = l.ReJoiningdate,
                             LeaveStatus = l.LeaveStatus,
                             WeekendOrHolidayInLeave = (int)l.WeekendORHolidaysInLeave,
-                            LeaveApprovalStatus = l.LeaveApprovalStatus==true?"Approved":"Pending"
-                            
+                            LeaveApprovalStatus = l.LeaveApprovalStatus == true ? "Approved" : "Pending"
+
                         };
             return query;
         }
 
         public List<string> getCalendar()
         {
-            return _dbcontext.Calendars.Select(c=>c.Date).ToList();
+            return _dbcontext.Calendars.Select(c => c.Date).ToList();
 
         }
 
@@ -157,30 +157,30 @@ namespace LMS.Service
                             c in _dbcontext.Leaves.AsEnumerable() on l.LeaveId equals c.LEAVE_ID
                         join emp in _dbcontext.AllEmployeeDetails.AsEnumerable() on l.LeaveApprovedBy equals emp.EmployeeID
                         join empdetail in _dbcontext.AllEmployeeDetails.AsEnumerable() on l.EmployeeId equals empdetail.EmployeeID
-                        join dept in _dbcontext.Departments.AsEnumerable() on l.DepartmentId equals  dept.DEP_ID
-                        join JobD in _dbcontext.JobDescriptions.AsEnumerable() on l.JobId equals JobD.JOB_ID                        
+                        join dept in _dbcontext.Departments.AsEnumerable() on l.DepartmentId equals dept.DEP_ID
+                        join JobD in _dbcontext.JobDescriptions.AsEnumerable() on l.JobId equals JobD.JOB_ID
                         select new LeaveHelper()
                         {
                             EmployeeleaveId = l.EmployeeleaveID,
                             EmployeeId = l.EmployeeId,
                             EmployeeFullName = empdetail.FullName,
                             DepartmentName = dept.DEP_NAME,
-                            JobName=JobD.JOB_ROLE,
-                            LeaveId=l.LeaveId,
-                           // LeaveRemainingdays=(int) l.RemainingDays,
-                            LeaveStatus=l.LeaveStatus,
+                            JobName = JobD.JOB_ROLE,
+                            LeaveId = l.LeaveId,
+                            // LeaveRemainingdays=(int) l.RemainingDays,
+                            LeaveStatus = l.LeaveStatus,
                             LeaveReason = l.LeaveReason,
-                            LeaveType=c.LEAVE_TYPE,                            
-                            LeaveApprovedBy= emp.FullName,                                    
+                            LeaveType = c.LEAVE_TYPE,
+                            LeaveApprovedBy = emp.FullName,
                             LeaveFromDateTime = l.LeaveFromdate,
-                            LeaveTodatDateTime = l.LeaveToDate,
-                            JoiningDateTime = l.ReJoiningdate,                          
-                            WeekendOrHolidayInLeave =(int) l.WeekendORHolidaysInLeave,
-                            TotaldaysOnLeaveCurrent=(int) l.TotaldaysOnLeaveCurrent,
-                            TotalLeaveTakenInYear=(int) l.TotalLeaveTakenInYear
+                            LeaveToDateTime = l.LeaveToDate,
+                            JoiningDateTime = l.ReJoiningdate,
+                            WeekendOrHolidayInLeave = (int)l.WeekendORHolidaysInLeave,
+                            TotaldaysOnLeaveCurrent = (int)l.TotaldaysOnLeaveCurrent,
+                            TotalLeaveTakenInYear = (int)l.TotalLeaveTakenInYear
 
                         };
-            
+
             return query;
 
         }
@@ -207,21 +207,21 @@ namespace LMS.Service
                             LeaveStatus = l.LeaveStatus,
                             LeaveReason = l.LeaveReason,
                             LeaveType = c.LEAVE_TYPE,
-                            LeaveApprovalStatus = l.LeaveApprovalStatus==true?"Approve":"Rejected",
+                            LeaveApprovalStatus = l.LeaveApprovalStatus == true ? "Approve" : "Rejected",
                             LeaveApprovedBy = emp.FullName,
                             LeaveFromDateTime = l.LeaveFromdate,
-                            LeaveTodatDateTime = l.LeaveToDate,
+                            LeaveToDateTime = l.LeaveToDate,
                             JoiningDateTime = l.ReJoiningdate,
-                            TotaldaysOnLeaveCurrent =(int) l.TotaldaysOnLeaveCurrent,
+                            TotaldaysOnLeaveCurrent = (int)l.TotaldaysOnLeaveCurrent,
                             TotalLeaveTakenInYear = (int)l.TotalLeaveTakenInYear
 
-                        };           
+                        };
             return query;
 
         }
 
 
-        public void updateleaveApprovalstatus(int employeeLeaveId,bool IsApprove)
+        public void updateleaveApprovalstatus(int employeeLeaveId, bool IsApprove)
         {
             var employeeleaves =
                 _dbcontext.EmployeeLeaves.Where(e => e.EmployeeleaveID == employeeLeaveId).FirstOrDefault();
@@ -257,7 +257,7 @@ namespace LMS.Service
 
         public void deleteEmployeeLeave(int employeeleaveId)
         {
-            var isLeave = _dbcontext.EmployeeLeaves.Where(l=>l.EmployeeleaveID==employeeleaveId).FirstOrDefault();
+            var isLeave = _dbcontext.EmployeeLeaves.Where(l => l.EmployeeleaveID == employeeleaveId).FirstOrDefault();
             if (isLeave != null)
             {
                 _dbcontext.Entry(isLeave).State = System.Data.Entity.EntityState.Deleted;
@@ -272,6 +272,23 @@ namespace LMS.Service
 
         }
 
-    
+        public string getThaughts()
+        {
+            return _dbcontext.Thaughts.Where(e => e.ThaughtDate == DateTime.Today.Day.ToString())
+                     .Select(e => e.Thaughts)
+                     .FirstOrDefault();
+        }
+
+        public void InsertIntoEvents(Event events)
+        {
+            _dbcontext.Events.Add(events);
+            _dbcontext.SaveChanges();
+        }
+
+        public string getEvents()
+        {
+            return _dbcontext.Events.Select(e => e.EventDescription).FirstOrDefault();
+        }
+
     }
 }

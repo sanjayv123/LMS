@@ -29,6 +29,8 @@
         <AssociationConnector Association="LMSDBModel.FK_EMPLEAVEID" />
         <AssociationConnector Association="LMSDBModel.FK_JOBLEAVEID" />
         <AssociationConnector Association="LMSDBModel.FK_EMPLEAVETYPEID" />
+        <EntityTypeShape EntityType="LMSDBModel.Thaught" Width="1.5" PointX="2.75" PointY="10.75" />
+        <EntityTypeShape EntityType="LMSDBModel.Event" Width="1.5" PointX="5.375" PointY="10.75" />
         </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

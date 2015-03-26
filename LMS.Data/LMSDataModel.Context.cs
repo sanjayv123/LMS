@@ -36,5 +36,7 @@ namespace LMS.Data
         public virtual DbSet<AllEmployeeDetails> AllEmployeeDetails { get; set; }
         public virtual DbSet<Calendar> Calendars { get; set; }
         public virtual DbSet<EmployeeLeave> EmployeeLeaves { get; set; }
+        public virtual DbSet<Thaught> Thaughts { get; set; }
+        public virtual DbSet<Event> Events { get; set; }
     }
 }

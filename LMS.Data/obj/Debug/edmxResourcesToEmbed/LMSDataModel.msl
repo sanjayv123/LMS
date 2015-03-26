@@ -134,5 +134,23 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="Thaughts">
+      <EntityTypeMapping TypeName="LMSDBModel.Thaught">
+        <MappingFragment StoreEntitySet="Thaught">
+          <ScalarProperty Name="Thaughts" ColumnName="Thaughts" />
+          <ScalarProperty Name="ThaughtDate" ColumnName="ThaughtDate" />
+          <ScalarProperty Name="ThaughtId" ColumnName="ThaughtId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Events">
+      <EntityTypeMapping TypeName="LMSDBModel.Event">
+        <MappingFragment StoreEntitySet="Event">
+          <ScalarProperty Name="EventDescription" ColumnName="EventDescription" />
+          <ScalarProperty Name="EventName" ColumnName="EventName" />
+          <ScalarProperty Name="EventId" ColumnName="EventId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
   </EntityContainerMapping>
 </Mapping>

@@ -8,6 +8,14 @@
     <Property Name="Date" Type="varchar" MaxLength="50" Nullable="false" />
     <Property Name="DateType" Type="varchar" MaxLength="50" Nullable="false" />
   </EntityType>
+  <EntityType Name="Event">
+    <Key>
+      <PropertyRef Name="EventId" />
+    </Key>
+    <Property Name="EventId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="EventName" Type="varchar" MaxLength="50" />
+    <Property Name="EventDescription" Type="nvarchar(max)" />
+  </EntityType>
   <!--Errors Found During Generation:
 warning 6002: The table/view 'LMSDB.dbo.MT_ATTENDANCE' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
   <EntityType Name="MT_ATTENDANCE">
@@ -71,6 +79,16 @@ warning 6002: The table/view 'LMSDB.dbo.MT_ATTENDANCE' does not have a primary k
     <Property Name="RoleId" Type="int" Nullable="false" />
     <Property Name="RoleName" Type="varchar" MaxLength="20" Nullable="false" />
     <Property Name="Authorization" Type="bit" Nullable="false" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'LMSDB.dbo.Thaught' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="Thaught">
+    <Key>
+      <PropertyRef Name="ThaughtId" />
+    </Key>
+    <Property Name="ThaughtId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ThaughtDate" Type="varchar" MaxLength="3" />
+    <Property Name="Thaughts" Type="varchar(max)" />
   </EntityType>
   <!--Errors Found During Generation:
 warning 6002: The table/view 'LMSDB.dbo.TR_EMPATTENDANCE' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
@@ -287,6 +305,7 @@ warning 6002: The table/view 'LMSDB.dbo.TR_EMPATTENDANCE' does not have a primar
   </Association>
   <EntityContainer Name="LMSDBModelStoreContainer">
     <EntitySet Name="Calendar" EntityType="Self.Calendar" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Event" EntityType="Self.Event" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="MT_DEPARTMENT" EntityType="Self.MT_DEPARTMENT" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="MT_EMPLOYEEDETAILS" EntityType="Self.MT_EMPLOYEEDETAILS" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="MT_JOBDESCRIPTION" EntityType="Self.MT_JOBDESCRIPTION" Schema="dbo" store:Type="Tables" />
@@ -302,6 +321,13 @@ warning 6002: The table/view 'LMSDB.dbo.TR_EMPATTENDANCE' does not have a primar
     [MT_ATTENDANCE].[ATT_WORKINGHRS] AS [ATT_WORKINGHRS], 
     [MT_ATTENDANCE].[ATT_WORKINGDAYS] AS [ATT_WORKINGDAYS]
     FROM [dbo].[MT_ATTENDANCE] AS [MT_ATTENDANCE]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="Thaught" EntityType="Self.Thaught" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [Thaught].[ThaughtId] AS [ThaughtId], 
+    [Thaught].[ThaughtDate] AS [ThaughtDate], 
+    [Thaught].[Thaughts] AS [Thaughts]
+    FROM [dbo].[Thaught] AS [Thaught]</DefiningQuery>
     </EntitySet>
     <EntitySet Name="TR_EMPATTENDANCE" EntityType="Self.TR_EMPATTENDANCE" store:Type="Tables" store:Schema="dbo">
       <DefiningQuery>SELECT 

@@ -76,6 +76,7 @@ namespace Home
                 LeaveReason = txtleavereason.Text,
                 LeaveFromdate = Convert.ToDateTime(txtleavefrom.Text),
                 LeaveToDate = Convert.ToDateTime(txtleaveto.Text),
+                RemainingDays = 0,
                 ReJoiningdate = Convert.ToDateTime(txtleavejoiningdate.Text),
                 LeaveApprovedBy = Convert.ToInt32(txtFillManagerID.Text),
                 WeekendORHolidaysInLeave = weekendAndHolidayCount,
@@ -141,7 +142,7 @@ namespace Home
             var username = userName.Split('\\');
             employeeRepository = new EmployeeRepository();
             var employeeId = employeeRepository.getEmployeeFromUserName(username[1]);
-            return employeeId;
+            return employeeId.Select(e=>e.EmployeeID).FirstOrDefault();
         }
 
 

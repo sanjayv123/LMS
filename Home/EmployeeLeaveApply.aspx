@@ -109,7 +109,7 @@
 
            <asp:TemplateField HeaderText="Leave TO">
                <ItemTemplate>
-                   <%#Eval("LeaveTodatDateTime") %>
+                   <%#Eval("LeaveToDateTime") %>
                </ItemTemplate>
            </asp:TemplateField>
            
