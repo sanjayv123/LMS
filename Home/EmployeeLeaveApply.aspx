@@ -22,14 +22,16 @@
         <div class="row">
             <div>
                 <div class="col-lg-12">
-                    <div class="well well-sm"><strong><%--<span class="glyphicon glyphicon-asterisk"></span>Required Field--%>
-                        <asp:Label ID="lblEmployeeLeaveType" runat="server">Apply Leave Request</asp:Label></strong></div>
+                    <div class="well well-sm">
+                        <strong><%--<span class="glyphicon glyphicon-asterisk"></span>Required Field--%>
+                            <asp:Label ID="lblEmployeeLeaveType" runat="server">Apply Leave Request</asp:Label></strong>
+                    </div>
 
                     <div class="col-lg-6">
                         <div class="form-group">
                             <%--<label for="InputName">Enter Name</label>--%>
                             <div class="input-group">
-                                <asp:DropDownList class="form-control" ID="ddlleavetype" runat="server">                                   
+                                <asp:DropDownList class="form-control" ID="ddlleavetype" runat="server">
                                 </asp:DropDownList>
                                 <span class="input-group-addon"><span class="glyphicon glyphicon-asterisk"></span></span>
                             </div>
@@ -63,94 +65,101 @@
                                 <span class="input-group-addon"><span class="glyphicon glyphicon-asterisk"></span></span>
                             </div>
                         </div>
-                       
-                         <div class="form-group">
+
+                        <div class="form-group">
                             <div class="input-group">
                                 <asp:TextBox class="form-control" ID="txtFillManagerID" runat="server" placeholder=""></asp:TextBox>
                                 <span class="input-group-addon"><span class="glyphicon glyphicon-asterisk"></span></span>
                             </div>
                         </div>
-                       
+
                         <%--<asp:Button runat="server" ID="btnsave" Text="Save" OnClick="btnsave_Click" />--%>
-                        <asp:Button runat="server" ID="btnsave"  Text="Submit"  class="btn btn-primary" OnClick="btnsubmit_Click" />
+                        <asp:Button runat="server" ID="btnsave" Text="Submit" class="btn btn-primary" OnClick="btnsubmit_Click" />
                     </div>
-                    
-  
+
+
+                </div>
             </div>
         </div>
-    </div>
         <div class="row">
-             <div class="well well-sm"><strong><%--<span class="glyphicon glyphicon-asterisk"></span>Required Field--%>
-                        <asp:Label ID="Label1" runat="server">Previous Leave</asp:Label></strong></div>
+            <div class="well well-sm">
+                <strong><%--<span class="glyphicon glyphicon-asterisk"></span>Required Field--%>
+                    <asp:Label ID="Label1" runat="server">Previous Leave</asp:Label></strong>
+            </div>
 
-       </div>
-    
-     <div class="row">
-                                          
-    <asp:GridView ID="gvEmployeeLeave" runat="server" Border="0px" AutoGenerateColumns="False" CssClass="table table-bordered table-striped" Width="1166px" OnRowCommand="_gvEmployeeLeaveRowCommand" >
-       <Columns>
-           <asp:TemplateField HeaderText="LeaveId">
-               <ItemTemplate>
-                   <%#Eval("LeaveId") %>
-               </ItemTemplate>
-           </asp:TemplateField>
+        </div>
 
-           <asp:TemplateField HeaderText="Leave Type">
-               <ItemTemplate>
-                   <%#Eval("LeaveType") %>
-               </ItemTemplate>
+        <div class="row">
 
-           </asp:TemplateField>
-           <asp:TemplateField HeaderText="Leave From">
-               <ItemTemplate>
-                    <%#Eval("LeaveFromDateTime") %>
-               </ItemTemplate>
-           </asp:TemplateField>
+            <asp:GridView ID="gvEmployeeLeave" runat="server" Border="0px" AutoGenerateColumns="False" CssClass="table table-bordered table-striped" Width="1166px" OnRowCommand="_gvEmployeeLeaveRowCommand">
+                <Columns>
+                    <asp:TemplateField HeaderText="LeaveId">
+                        <ItemTemplate>
+                            <%#Eval("LeaveId") %>
+                        </ItemTemplate>
+                    </asp:TemplateField>
 
-           <asp:TemplateField HeaderText="Leave TO">
-               <ItemTemplate>
-                   <%#Eval("LeaveToDateTime") %>
-               </ItemTemplate>
-           </asp:TemplateField>
-           
-                        <asp:TemplateField HeaderText="Weekends or Holiday In Leave">
-                            <ItemTemplate>
-                                <%#Eval("WeekendOrHolidayInLeave") %>
-                            </ItemTemplate>
-                        </asp:TemplateField>
-           
+                    <asp:TemplateField HeaderText="Leave Type">
+                        <ItemTemplate>
+                            <%#Eval("LeaveType") %>
+                        </ItemTemplate>
 
-           <asp:TemplateField HeaderText="Joining Date">
-               <ItemTemplate>
-                   <%#Eval("JoiningDateTime") %>
-               </ItemTemplate>
-           </asp:TemplateField>
+                    </asp:TemplateField>
+                    <asp:TemplateField HeaderText="Leave From">
+                        <ItemTemplate>
+                            <%#Eval("LeaveFromDateTime") %>
+                        </ItemTemplate>
+                    </asp:TemplateField>
 
-          <asp:TemplateField HeaderText="Leave Approval Status">
-               <ItemTemplate>
-                   <%#Eval("LeaveApprovalStatus") %>
-               </ItemTemplate>
-           </asp:TemplateField>
+                    <asp:TemplateField HeaderText="Leave TO">
+                        <ItemTemplate>
+                            <%#Eval("LeaveToDateTime") %>
+                        </ItemTemplate>
+                    </asp:TemplateField>
 
-             <asp:TemplateField HeaderText="">
-                <ItemTemplate>
-                    <asp:LinkButton  ID="Delete" CommandArgument='<%#Eval("LeaveId") %>' CommandName="CancelLeave" runat="server">Cancel</asp:LinkButton>
-               </ItemTemplate>
-           </asp:TemplateField>
-      
-       </Columns>
-    </asp:GridView>           
-                 </div>
+                    <asp:TemplateField HeaderText="Weekends or Holiday In Leave">
+                        <ItemTemplate>
+                            <%#Eval("WeekendOrHolidayInLeave") %>
+                        </ItemTemplate>
+                    </asp:TemplateField>
+
+                    <asp:TemplateField HeaderText="Total Days On Leave">
+                        <ItemTemplate>
+                            <%#Eval("TotaldaysOnLeaveCurrent") %>
+                        </ItemTemplate>
+                    </asp:TemplateField>
+
+                    <asp:TemplateField HeaderText="Joining Date">
+                        <ItemTemplate>
+                            <%#Eval("JoiningDateTime") %>
+                        </ItemTemplate>
+                    </asp:TemplateField>
+
+                    <asp:TemplateField HeaderText="Leave Approval Status">
+                        <ItemTemplate>
+                            <%#Eval("LeaveApprovalStatus") %>
+                        </ItemTemplate>
+                    </asp:TemplateField>
+
+                    <asp:TemplateField HeaderText="">
+                        <ItemTemplate>
+                            <asp:LinkButton ID="Delete" CommandArgument='<%#Eval("LeaveId") %>' CommandName="CancelLeave" runat="server">Cancel</asp:LinkButton>
+                        </ItemTemplate>
+                    </asp:TemplateField>
+
+                </Columns>
+            </asp:GridView>
+        </div>
 
 
 
 
 
-      <script type="text/javascript">
+        <script type="text/javascript">
 
 
-          $(document).ready(function () {
-              $('#<%=txtleavefrom.ClientID %>').datepicker(
+            $(document).ready(function () {
+                $('#<%=txtleavefrom.ClientID %>').datepicker(
              {
                  dateFormat: "dd/mm/yy",
                  duration: "",
@@ -159,29 +168,27 @@
                  buttonImageOnly: true
 
              });
-               $('#<%=txtleaveto.ClientID %>').datepicker(
-             {
-                 dateFormat: "dd/mm/yy",
-                 duration: "",
-                 showOn: "both",
-                 buttonImage: "/datetimepicker/calendar.gif",
-                 buttonImageOnly: true
+              $('#<%=txtleaveto.ClientID %>').datepicker(
+            {
+                dateFormat: "dd/mm/yy",
+                duration: "",
+                showOn: "both",
+                buttonImage: "/datetimepicker/calendar.gif",
+                buttonImageOnly: true
 
-             });
-               $('#<%=txtleavejoiningdate.ClientID %>').datepicker(
-         {
-             dateFormat: "dd/mm/yy",
-             duration: "",
-             showOn: "both",
-             buttonImage: "/datetimepicker/calendar.gif",
-             buttonImageOnly: true
+            });
+              $('#<%=txtleavejoiningdate.ClientID %>').datepicker(
+        {
+            dateFormat: "dd/mm/yy",
+            duration: "",
+            showOn: "both",
+            buttonImage: "/datetimepicker/calendar.gif",
+            buttonImageOnly: true
 
-         });
-           })
+        });
+          })
 
-      </script>
-
-
+        </script>
 </asp:Content>
 
 

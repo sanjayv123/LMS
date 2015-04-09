@@ -17,7 +17,6 @@
         <EntityTypeShape EntityType="LMSDBModel.Role" Width="1.5" PointX="7.375" PointY="1.375" />
         <EntityTypeShape EntityType="LMSDBModel.User" Width="1.5" PointX="9.625" PointY="1" />
         <AssociationConnector Association="LMSDBModel.FK_Users_Roles" />
-        <EntityTypeShape EntityType="LMSDBModel.Leave" Width="1.5" PointX="7.375" PointY="4.875" />
         <EntityTypeShape EntityType="LMSDBModel.AllEmployeeDetails" Width="1.5" PointX="3" PointY="4" />
         <AssociationConnector Association="LMSDBModel.FK_DEPDETAILSID" />
         <AssociationConnector Association="LMSDBModel.FK_EMPATTENDANCEID" />
@@ -28,9 +27,10 @@
         <AssociationConnector Association="LMSDBModel.FK_APPROVALEMPID" />
         <AssociationConnector Association="LMSDBModel.FK_EMPLEAVEID" />
         <AssociationConnector Association="LMSDBModel.FK_JOBLEAVEID" />
-        <AssociationConnector Association="LMSDBModel.FK_EMPLEAVETYPEID" />
         <EntityTypeShape EntityType="LMSDBModel.Thaught" Width="1.5" PointX="2.75" PointY="10.75" />
         <EntityTypeShape EntityType="LMSDBModel.Event" Width="1.5" PointX="5.375" PointY="10.75" />
+        <EntityTypeShape EntityType="LMSDBModel.Leave" Width="1.5" PointX="7.375" PointY="11.875" />
+        <AssociationConnector Association="LMSDBModel.FK_EMPLEAVETYPEID" />
         </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

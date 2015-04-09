@@ -9,6 +9,7 @@ using System.Security.Principal;
 
 using LMS.Data;
 using LMS.Service;
+using LMS.Service.Helper;
 
 namespace Home
 {
@@ -16,29 +17,33 @@ namespace Home
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            //if (WindowsIdentity.GetCurrent().IsAuthenticated)
-            //{
-            //    EmployeeRepository employeeRepository = new EmployeeRepository();                
-            //   var name= WindowsIdentity.GetCurrent().Name.Split('\\');
-            //    lblusername.Text = name[1];
-            //   var roleid= getEmployeeIDFromUsername(name[1]);
-            //    if (roleid == 2)
-
-            //    {
-            //        menuItemAddEmployee.Visible = false;
-            //        menuItemEmployeeLeaveApproval.Visible = false;
-            //        menuItemEmployeeLeaveDetails.Visible = false;
-            //    }
-   
-            //}
+                if (WindowsIdentity.GetCurrent().IsAuthenticated)
+                {
+                    EmployeeRepository employeeRepository = new EmployeeRepository();
+                    var name = AuthenticationHelper.username;
+                    lblusername.Text = name;
+                    int role = AuthenticationHelper.role;
+                    if ((ApplicationRoles)role == ApplicationRoles.USER)
+                    {
+                        menuItemAddEmployee.Visible = false;
+                        menuItemEmployeeLeaveApproval.Visible = false;
+                        menuItemEmployeeLeaveDetails.Visible = false;
+                        menuItemEmployeeList.Visible = false;
+                    }
+                    if ((ApplicationRoles)role == ApplicationRoles.MANAGER)
+                    {
+                        menuItemAddEmployee.Visible = false;
+                        menuItemEmployeeLeaveApproval.Visible = true;
+                        menuItemEmployeeLeaveDetails.Visible = false;
+                        menuItemEmployeeList.Visible = false;
+                    }
+                }
         }
 
-        public int getEmployeeIDFromUsername(string userName)
-        {
-            EmployeeRepository employeeRepository = new EmployeeRepository();
-            var employeeId = employeeRepository.getEmployeeFromUserName(userName);
-            return employeeId.Select(e=>e.RoleId).FirstOrDefault();
+          
+
         }
+
 
     }
-}
+

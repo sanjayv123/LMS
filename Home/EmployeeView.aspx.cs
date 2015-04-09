@@ -36,6 +36,7 @@ namespace Home
             lblGender.Text = objemployee.Gender;
             lblDOB.Text = Convert.ToString(objemployee.DOB);
             lblJoiningDate.Text = Convert.ToString(objemployee.JoiningDate);
+            lblCode.Text = Convert.ToString(objemployee.EmployeeCode);
 
 
         }

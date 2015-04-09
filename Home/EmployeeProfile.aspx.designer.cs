@@ -10,87 +10,87 @@
 namespace Home {
     
     
-    public partial class EmployeeProfile1 {
+    public partial class EmployeeProfile {
         
         /// <summary>
-        /// lblName control.
+        /// lbltotalcasualleaves control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblName;
+        protected global::System.Web.UI.WebControls.Label lbltotalcasualleaves;
         
         /// <summary>
-        /// lblEmployeeId control.
+        /// lblTotalPlannedLeaves control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblEmployeeId;
+        protected global::System.Web.UI.WebControls.Label lblTotalPlannedLeaves;
         
         /// <summary>
-        /// lblDesignation control.
+        /// lblTotalSickLeaves control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblDesignation;
+        protected global::System.Web.UI.WebControls.Label lblTotalSickLeaves;
         
         /// <summary>
-        /// lblAddress control.
+        /// lbltotalcasualleavesTaken control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblAddress;
+        protected global::System.Web.UI.WebControls.Label lbltotalcasualleavesTaken;
         
         /// <summary>
-        /// lblEmailId control.
+        /// lblTotalPlannedLeavesTaken control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblEmailId;
+        protected global::System.Web.UI.WebControls.Label lblTotalPlannedLeavesTaken;
         
         /// <summary>
-        /// lblMobileNumber control.
+        /// lblTotalSickLeavesTaken control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblMobileNumber;
+        protected global::System.Web.UI.WebControls.Label lblTotalSickLeavesTaken;
         
         /// <summary>
-        /// lblPhoneNumber control.
+        /// lbltotalcasualleavesAvailable control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblPhoneNumber;
+        protected global::System.Web.UI.WebControls.Label lbltotalcasualleavesAvailable;
         
         /// <summary>
-        /// lblDOB control.
+        /// lblTotalPlannedLeavesAvailable control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblDOB;
+        protected global::System.Web.UI.WebControls.Label lblTotalPlannedLeavesAvailable;
         
         /// <summary>
-        /// lblJoiningDate control.
+        /// lblTotalSickLeavesAvailable control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblJoiningDate;
+        protected global::System.Web.UI.WebControls.Label lblTotalSickLeavesAvailable;
     }
 }

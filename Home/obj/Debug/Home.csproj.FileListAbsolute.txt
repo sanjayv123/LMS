@@ -58,3 +58,15 @@ G:\SanjayWorkArea\LMS\LMS\Home\bin\EntityFramework.xml
 G:\SanjayWorkArea\LMS\LMS\Home\obj\Debug\Home.csprojResolveAssemblyReference.cache
 G:\SanjayWorkArea\LMS\LMS\Home\obj\Debug\Home.dll
 G:\SanjayWorkArea\LMS\LMS\Home\obj\Debug\Home.pdb
+D:\LMS 27_03_2015\LMS\Home\bin\Home.dll.config
+D:\LMS 27_03_2015\LMS\Home\bin\Home.dll
+D:\LMS 27_03_2015\LMS\Home\bin\Home.pdb
+D:\LMS 27_03_2015\LMS\Home\bin\EntityFramework.dll
+D:\LMS 27_03_2015\LMS\Home\bin\LMS.Data.dll
+D:\LMS 27_03_2015\LMS\Home\bin\LMS.Service.dll
+D:\LMS 27_03_2015\LMS\Home\bin\LMS.Data.pdb
+D:\LMS 27_03_2015\LMS\Home\bin\LMS.Service.pdb
+D:\LMS 27_03_2015\LMS\Home\bin\EntityFramework.xml
+D:\LMS 27_03_2015\LMS\Home\obj\Debug\Home.csprojResolveAssemblyReference.cache
+D:\LMS 27_03_2015\LMS\Home\obj\Debug\Home.dll
+D:\LMS 27_03_2015\LMS\Home\obj\Debug\Home.pdb

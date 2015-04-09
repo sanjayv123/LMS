@@ -26,5 +26,8 @@ namespace LMS.Service.Helper
         public int WeekendOrHolidayInLeave { get; set; }
         public int TotaldaysOnLeaveCurrent { get; set; }
         public int TotalLeaveTakenInYear { get; set; }
+        public int LeaveTotalDays { get; set; }
+        public int totalearnedleave { get; set; }
+
     }
 }

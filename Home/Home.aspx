@@ -68,7 +68,7 @@
         <div class="col-lg-2">
             <div class="table">
                 <table class="table">
-                    <caption>Thaught for the Day</caption>
+                    <caption>Thought for the Day</caption>
                     <thead>
                     </thead>
                     <tbody>

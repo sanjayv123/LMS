@@ -25,7 +25,6 @@
                                     <div class="title"><a href="#">LMS</a></div>
 
                                     <div class="header_right ">Welcome <asp:label id="lblusername" runat="server"></asp:label> <a href="#" class="logout">Logout</a> </div>
-
                                     <div class="menu">
                     <nav class="navbar navbar-default">
                       <div class="container-fluid">
@@ -58,7 +57,7 @@
                           </ul>
                                      <ul class="nav navbar-nav navbar-right">
                                          <ul class="nav nav-pills">
-                                         <li role="presentation" class="active"><a id="menuItemMyProfile" runat="server" href="#">My Profile</a></li>
+                                         <li role="presentation" class="active"><a id="menuItemMyProfile" runat="server" href="EmployeeProfile.aspx">My Profile</a></li>
                                         </ul>
                                       </ul>
                         </div><!-- /.navbar-collapse -->
@@ -140,9 +139,9 @@
                    Copyright 2015 - All Rights Reserved Anderson Business Solutions Private Limited
                 </div>
 
-            </div>
+           
 
-        </div>
+        
 
     </form>
 </body>

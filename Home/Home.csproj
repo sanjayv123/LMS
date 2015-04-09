@@ -101,8 +101,8 @@
     <Content Include="images\settings.png" />
     <Content Include="images\trash.gif" />
     <Content Include="images\select.png" />
-    <Content Include="js\bootstrap.min.js" />
-    <Content Include="js\jquery-1.9.1.js" />
+    <Content Include="images\js\bootstrap.min.js" />
+    <Content Include="images\js\jquery-1.9.1.js" />
     <Content Include="ListEmployee.aspx" />
     <Content Include="Login.aspx" />
     <Content Include="Web.config">

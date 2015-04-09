@@ -46,6 +46,7 @@ namespace Home
             var departmentList = employeeRepository.getAllDepartment();
             var jobRoleList = employeeRepository.getAlljobDescription();
             var reportingManagerList = employeeRepository.getmanager();
+            var rolelist = employeeRepository.getallrole();
             foreach (var deptname in departmentList)
             {
                 ddlDepartmentList.Items.Add(deptname.DEP_NAME);
@@ -61,6 +62,11 @@ namespace Home
                 ddlReportingManager.Items.Add(reportmanager.FullName);
             }
 
+            foreach (var role in rolelist)
+            {
+                ddlRoleList.Items.Add(role.RoleName);
+            }
+
          
         }
 
@@ -74,6 +80,8 @@ namespace Home
             var jobid = jobRoleList.Where(j => j.JOB_ROLE == ddlJobRole.SelectedItem.ToString()).Select(j => j.JOB_ID).FirstOrDefault();
             var reportingManagerList = employeeRepository.getmanager();
             var reportingManagerId = reportingManagerList.Where(r => r.FullName == ddlReportingManager.SelectedItem.ToString()).Select(r=>r.EmployeeID).FirstOrDefault();
+            var rolelist = employeeRepository.getallrole();
+            var roleid = rolelist.Where(r => r.RoleName == ddlRoleList.SelectedItem.ToString()).Select(r => r.RoleId).FirstOrDefault();
             //getjobid
 
 
@@ -94,6 +102,7 @@ namespace Home
             objEmployee.Gender= ddlGender.SelectedValue;
             objEmployee.ReportingManager = Convert.ToInt32(reportingManagerId);
             objEmployee.UserName = txtusername.Text;
+            objEmployee.RoleId = Convert.ToInt32(roleid);
 
             if (btnsave.Text == "Save")
             {

@@ -58,3 +58,15 @@ G:\SanjayWorkArea\LMS\LMS\LMS.Service\bin\Debug\EntityFramework.SqlServer.xml
 G:\SanjayWorkArea\LMS\LMS\LMS.Service\obj\Debug\LMS.Service.csprojResolveAssemblyReference.cache
 G:\SanjayWorkArea\LMS\LMS\LMS.Service\obj\Debug\LMS.Service.dll
 G:\SanjayWorkArea\LMS\LMS\LMS.Service\obj\Debug\LMS.Service.pdb
+D:\LMS 27_03_2015\LMS\LMS.Service\bin\Debug\LMS.Service.dll.config
+D:\LMS 27_03_2015\LMS\LMS.Service\bin\Debug\LMS.Service.dll
+D:\LMS 27_03_2015\LMS\LMS.Service\bin\Debug\LMS.Service.pdb
+D:\LMS 27_03_2015\LMS\LMS.Service\bin\Debug\EntityFramework.dll
+D:\LMS 27_03_2015\LMS\LMS.Service\bin\Debug\EntityFramework.SqlServer.dll
+D:\LMS 27_03_2015\LMS\LMS.Service\bin\Debug\LMS.Data.dll
+D:\LMS 27_03_2015\LMS\LMS.Service\bin\Debug\LMS.Data.pdb
+D:\LMS 27_03_2015\LMS\LMS.Service\bin\Debug\EntityFramework.xml
+D:\LMS 27_03_2015\LMS\LMS.Service\bin\Debug\EntityFramework.SqlServer.xml
+D:\LMS 27_03_2015\LMS\LMS.Service\obj\Debug\LMS.Service.csprojResolveAssemblyReference.cache
+D:\LMS 27_03_2015\LMS\LMS.Service\obj\Debug\LMS.Service.dll
+D:\LMS 27_03_2015\LMS\LMS.Service\obj\Debug\LMS.Service.pdb

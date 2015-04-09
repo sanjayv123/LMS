@@ -49,6 +49,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="EmployeeRepository.cs" />
+    <Compile Include="Helper\ApplicationRoles.cs" />
+    <Compile Include="Helper\AuthenticationHelper.cs" />
     <Compile Include="IEmployee.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Helper\LeaveHelper.cs" />

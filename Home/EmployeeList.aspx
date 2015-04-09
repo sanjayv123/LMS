@@ -7,7 +7,7 @@
         <Columns>
             <asp:TemplateField HeaderText="Full Name">
                 <ItemTemplate>
-                    <%#Eval("EmployeeID")%>
+                    <%#Eval("FullName")%>
                 </ItemTemplate>
             </asp:TemplateField>
 

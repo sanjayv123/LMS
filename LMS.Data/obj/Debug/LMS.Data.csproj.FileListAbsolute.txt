@@ -46,3 +46,13 @@ G:\SanjayWorkArea\LMS\LMS\LMS.Data\bin\Debug\EntityFramework.SqlServer.xml
 G:\SanjayWorkArea\LMS\LMS\LMS.Data\obj\Debug\LMS.Data.dll
 G:\SanjayWorkArea\LMS\LMS\LMS.Data\obj\Debug\LMS.Data.pdb
 G:\SanjayWorkArea\LMS\LMS\LMS.Data\obj\Debug\LMS.Data.csprojResolveAssemblyReference.cache
+D:\LMS 27_03_2015\LMS\LMS.Data\bin\Debug\LMS.Data.dll.config
+D:\LMS 27_03_2015\LMS\LMS.Data\bin\Debug\LMS.Data.dll
+D:\LMS 27_03_2015\LMS\LMS.Data\bin\Debug\LMS.Data.pdb
+D:\LMS 27_03_2015\LMS\LMS.Data\bin\Debug\EntityFramework.dll
+D:\LMS 27_03_2015\LMS\LMS.Data\bin\Debug\EntityFramework.SqlServer.dll
+D:\LMS 27_03_2015\LMS\LMS.Data\bin\Debug\EntityFramework.xml
+D:\LMS 27_03_2015\LMS\LMS.Data\bin\Debug\EntityFramework.SqlServer.xml
+D:\LMS 27_03_2015\LMS\LMS.Data\obj\Debug\LMS.Data.csprojResolveAssemblyReference.cache
+D:\LMS 27_03_2015\LMS\LMS.Data\obj\Debug\LMS.Data.dll
+D:\LMS 27_03_2015\LMS\LMS.Data\obj\Debug\LMS.Data.pdb

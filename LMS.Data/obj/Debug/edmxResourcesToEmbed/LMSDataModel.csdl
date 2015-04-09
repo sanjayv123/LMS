@@ -126,7 +126,6 @@
       <End Role="Role" EntitySet="Roles" />
       <End Role="User" EntitySet="Users" />
     </AssociationSet>
-    <EntitySet Name="Leaves" EntityType="LMSDBModel.Leave" />
     <EntitySet Name="AllEmployeeDetails" EntityType="LMSDBModel.AllEmployeeDetails" />
     <AssociationSet Name="FK_DEPDETAILSID" Association="LMSDBModel.FK_DEPDETAILSID">
       <End Role="Department" EntitySet="Departments" />
@@ -158,12 +157,13 @@
       <End Role="JobDescription" EntitySet="JobDescriptions" />
       <End Role="TR_EMPLEAVE" EntitySet="EmployeeLeaves" />
     </AssociationSet>
-    <AssociationSet Name="FK_EMPLEAVETYPEID" Association="LMSDBModel.FK_EMPLEAVETYPEID">
-      <End Role="Leave" EntitySet="Leaves" />
-      <End Role="TR_EMPLEAVE" EntitySet="EmployeeLeaves" />
-    </AssociationSet>
     <EntitySet Name="Thaughts" EntityType="LMSDBModel.Thaught" />
     <EntitySet Name="Events" EntityType="LMSDBModel.Event" />
+    <EntitySet Name="Leaves" EntityType="LMSDBModel.Leave" />
+    <AssociationSet Name="FK_EMPLEAVETYPEID" Association="LMSDBModel.FK_EMPLEAVETYPEID">
+      <End Role="MT_LEAVE" EntitySet="Leaves" />
+      <End Role="EmployeeLeave" EntitySet="EmployeeLeaves" />
+    </AssociationSet>
   </EntityContainer>
   <EntityType Name="UserActivation">
     <Key>
@@ -206,14 +206,6 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <EntityType Name="Leave">
-    <Key>
-      <PropertyRef Name="LEAVE_ID" />
-    </Key>
-    <Property Name="LEAVE_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="LEAVE_TYPE" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
-    <NavigationProperty Name="TR_EMPLEAVE" Relationship="LMSDBModel.FK_EMPLEAVETYPEID" FromRole="Leave" ToRole="TR_EMPLEAVE" />
-  </EntityType>
   <EntityType Name="AllEmployeeDetails">
     <Key>
       <PropertyRef Name="EmployeeID" />
@@ -312,7 +304,7 @@
     <NavigationProperty Name="MT_EMPLOYEEDETAILS" Relationship="LMSDBModel.FK_APPROVALEMPID" FromRole="TR_EMPLEAVE" ToRole="AllEmployeeDetails" />
     <NavigationProperty Name="MT_EMPLOYEEDETAILS1" Relationship="LMSDBModel.FK_EMPLEAVEID" FromRole="TR_EMPLEAVE" ToRole="AllEmployeeDetails" />
     <NavigationProperty Name="MT_JOBDESCRIPTION" Relationship="LMSDBModel.FK_JOBLEAVEID" FromRole="TR_EMPLEAVE" ToRole="JobDescription" />
-    <NavigationProperty Name="MT_LEAVE" Relationship="LMSDBModel.FK_EMPLEAVETYPEID" FromRole="TR_EMPLEAVE" ToRole="Leave" />
+    <NavigationProperty Name="MT_LEAVE" Relationship="LMSDBModel.FK_EMPLEAVETYPEID" FromRole="EmployeeLeave" ToRole="MT_LEAVE" />
   </EntityType>
   <Association Name="FK_DEPLEAVEID">
     <End Type="LMSDBModel.Department" Role="Department" Multiplicity="1" />
@@ -362,18 +354,6 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK_EMPLEAVETYPEID">
-    <End Type="LMSDBModel.Leave" Role="Leave" Multiplicity="1" />
-    <End Type="LMSDBModel.EmployeeLeave" Role="TR_EMPLEAVE" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Leave">
-        <PropertyRef Name="LEAVE_ID" />
-      </Principal>
-      <Dependent Role="TR_EMPLEAVE">
-        <PropertyRef Name="LeaveId" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
   <EntityType Name="Thaught">
     <Key>
       <PropertyRef Name="ThaughtId" />
@@ -390,4 +370,25 @@
     <Property Name="EventName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
     <Property Name="EventDescription" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
   </EntityType>
+  <EntityType Name="Leave">
+    <Key>
+      <PropertyRef Name="LEAVE_ID" />
+    </Key>
+    <Property Name="LEAVE_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="LEAVE_TYPE" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="LEAVE_TOTALDAYS" Type="Int32" />
+    <NavigationProperty Name="TR_EMPLEAVE" Relationship="LMSDBModel.FK_EMPLEAVETYPEID" FromRole="MT_LEAVE" ToRole="EmployeeLeave" />
+  </EntityType>
+  <Association Name="FK_EMPLEAVETYPEID">
+    <End Type="LMSDBModel.Leave" Role="MT_LEAVE" Multiplicity="1" />
+    <End Type="LMSDBModel.EmployeeLeave" Role="EmployeeLeave" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="MT_LEAVE">
+        <PropertyRef Name="LEAVE_ID" />
+      </Principal>
+      <Dependent Role="EmployeeLeave">
+        <PropertyRef Name="LeaveId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
 </Schema>

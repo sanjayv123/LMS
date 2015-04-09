@@ -38,5 +38,6 @@ namespace LMS.Data
         public virtual AllEmployeeDetails MT_EMPLOYEEDETAILS1 { get; set; }
         public virtual JobDescription MT_JOBDESCRIPTION { get; set; }
         public virtual Leave MT_LEAVE { get; set; }
+        
     }
 }

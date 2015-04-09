@@ -133,6 +133,15 @@
                             </div>
                         </div>
 
+                         <div class="form-group">
+                            <label>Select Role</label>
+                            <div class="input-group">
+                                <asp:DropDownList class="form-control" ID="ddlRoleList" runat="server"></asp:DropDownList>
+                                <span class="input-group-addon"><span class="glyphicon glyphicon-asterisk"></span></span>
+                            </div>
+                        </div>
+
+
                         <div class="form-group">
                             <label>Select Job Role</label>
                             <div class="input-group">

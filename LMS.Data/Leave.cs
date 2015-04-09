@@ -21,6 +21,7 @@ namespace LMS.Data
     
         public int LEAVE_ID { get; set; }
         public string LEAVE_TYPE { get; set; }
+        public Nullable<int> LEAVE_TOTALDAYS { get; set; }
     
         public virtual ICollection<EmployeeLeave> TR_EMPLEAVE { get; set; }
     }

@@ -21,36 +21,40 @@ namespace Home
 
         protected void Page_Load(object sender, EventArgs e)
         {
-
-            string username = WindowsIdentity.GetCurrent().Name;
-            int employeeid = getEmployeeIDFromUsername(username);
-          
-            employeeRepository = new EmployeeRepository();
-            ddlleavetype.DataSource = GetLeaveType();
-            ddlleavetype.DataBind();
-
-            var managerId = employeeRepository.getNewemployee(employeeid);
-            var manager = employeeRepository.getNewemployee(managerId.ReportingManager);
-            txtReportingManager.Text = manager.FullName;
-            txtFillManagerID.Text = managerId.ReportingManager.ToString();
-
-            var query = employeeRepository.getleaveDetails(employeeid);
-
-            if (query != null)
+            if (!IsPostBack)
             {
-                gvEmployeeLeave.DataSource = query.ToList();
-                gvEmployeeLeave.DataBind();
+
+               // string username = WindowsIdentity.GetCurrent().Name;
+               // int employeeid = getEmployeeIDFromUsername(username);
+                string username = AuthenticationHelper.username;
+                int employeeid = getEmployeeIDFromUsername(username); 
+                employeeRepository = new EmployeeRepository();
+                ddlleavetype.DataSource = GetLeaveType();
+                ddlleavetype.DataBind();
+
+                var managerId = employeeRepository.getNewemployee(employeeid);
+                var manager = employeeRepository.getNewemployee(managerId.ReportingManager);
+                txtReportingManager.Text = manager.FullName;
+                txtFillManagerID.Text = managerId.ReportingManager.ToString();
+
+                var query = employeeRepository.getleaveDetails(employeeid);
+
+                if (query != null)
+                {
+                    gvEmployeeLeave.DataSource = query.ToList();
+                    gvEmployeeLeave.DataBind();
+                }
             }
-
-
 
         }
 
         protected void btnsubmit_Click(object sender, EventArgs e)
         {
-         
-            string username = WindowsIdentity.GetCurrent().Name;
-            int employeeid = getEmployeeIDFromUsername(username);
+
+            string username = AuthenticationHelper.username;
+          int employeeid = getEmployeeIDFromUsername(username);
+          
+
             employeeRepository = new EmployeeRepository();
             var employeedetail = employeeRepository.getNewemployee(1);
             var departmentid = employeedetail.DepartmentId;
@@ -58,13 +62,15 @@ namespace Home
             var leaveid =
                 employeeRepository.getLeaveTypes()
                     .Where(l => l.LEAVE_TYPE == ddlleavetype.SelectedItem.ToString())
-                    .Select(d => d.LEAVE_ID)
-                    .FirstOrDefault();
-            TimeSpan totaldays = Convert.ToDateTime(txtleaveto.Text) -
-                                 Convert.ToDateTime(txtleavefrom.Text);
-
+                    .Select(d => d.LEAVE_ID).FirstOrDefault();
+                    
+            TimeSpan totaldays = Convert.ToDateTime(txtleaveto.Text, System.Globalization.CultureInfo.GetCultureInfo("hi-IN").DateTimeFormat) -
+                                 Convert.ToDateTime(txtleavefrom.Text, System.Globalization.CultureInfo.GetCultureInfo("hi-IN").DateTimeFormat);
+         
             var weekendAndHolidayCount = calculateWeekendorHolidayinLeave(Convert.ToDateTime(txtleavefrom.Text),
                 Convert.ToDateTime(txtleaveto.Text));
+
+            //var totalleaves = (totaldays - weekendAndHolidayCount) + 1;
 
             EmployeeLeave objleave = new EmployeeLeave
             {
@@ -76,12 +82,12 @@ namespace Home
                 LeaveReason = txtleavereason.Text,
                 LeaveFromdate = Convert.ToDateTime(txtleavefrom.Text),
                 LeaveToDate = Convert.ToDateTime(txtleaveto.Text),
-                RemainingDays = 0,
+                RemainingDays = 0, 
                 ReJoiningdate = Convert.ToDateTime(txtleavejoiningdate.Text),
                 LeaveApprovedBy = Convert.ToInt32(txtFillManagerID.Text),
                 WeekendORHolidaysInLeave = weekendAndHolidayCount,
-                TotaldaysOnLeaveCurrent =(int)totaldays.TotalDays,
-                TotalLeaveTakenInYear = (int) totaldays.TotalDays
+                TotaldaysOnLeaveCurrent =(int)totaldays.TotalDays-weekendAndHolidayCount+1,
+                TotalLeaveTakenInYear = (int)totaldays.TotalDays - weekendAndHolidayCount+1,
             };
             employees.InsertIntoEmployeeLeave(objleave);
             Response.Redirect("EmployeeLeaveApply.aspx");
@@ -121,8 +127,11 @@ namespace Home
 
         protected void _gvEmployeeLeaveRowCommand(object sender, GridViewCommandEventArgs e)
         {
-            string username = WindowsIdentity.GetCurrent().Name;
+            //string username = WindowsIdentity.GetCurrent().Name;
+           // int employeeid = getEmployeeIDFromUsername(username);
+            string username = AuthenticationHelper.username; 
             int employeeid = getEmployeeIDFromUsername(username);
+
             if (e.CommandName == "CancelLeave")
             {
                 employeeRepository = new EmployeeRepository();
@@ -139,10 +148,13 @@ namespace Home
 
         public int getEmployeeIDFromUsername(string userName)
         {
-            var username = userName.Split('\\');
+           // var username = userName.Split('\\');
             employeeRepository = new EmployeeRepository();
-            var employeeId = employeeRepository.getEmployeeFromUserName(username[1]);
-            return employeeId.Select(e=>e.EmployeeID).FirstOrDefault();
+            var employeeid = employeeRepository.getEmployeeFromUserName(userName);
+            return employeeid.Select(e => e.EmployeeID).FirstOrDefault();
+            //var employeeId = employeeRepository.getEmployeedetails();
+            //return employeeId.Select(e => e.RoleId).FirstOrDefault();
+
         }
 
 

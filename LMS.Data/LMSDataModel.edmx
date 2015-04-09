@@ -22,7 +22,7 @@
           <Property Name="EventDescription" Type="nvarchar(max)" />
         </EntityType>
         <!--Errors Found During Generation:
-warning 6002: The table/view 'LMSDB.dbo.MT_ATTENDANCE' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+warning 6002: The table/view 'LMS.dbo.MT_ATTENDANCE' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="MT_ATTENDANCE">
           <Key>
             <PropertyRef Name="DEP_ID" />
@@ -76,6 +76,7 @@ warning 6002: The table/view 'LMSDB.dbo.MT_ATTENDANCE' does not have a primary k
           </Key>
           <Property Name="LEAVE_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="LEAVE_TYPE" Type="varchar" MaxLength="500" />
+          <Property Name="LEAVE_TOTALDAYS" Type="int" />
         </EntityType>
         <EntityType Name="Roles">
           <Key>
@@ -86,7 +87,7 @@ warning 6002: The table/view 'LMSDB.dbo.MT_ATTENDANCE' does not have a primary k
           <Property Name="Authorization" Type="bit" Nullable="false" />
         </EntityType>
         <!--Errors Found During Generation:
-warning 6002: The table/view 'LMSDB.dbo.Thaught' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+warning 6002: The table/view 'LMS.dbo.Thaught' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="Thaught">
           <Key>
             <PropertyRef Name="ThaughtId" />
@@ -96,7 +97,7 @@ warning 6002: The table/view 'LMSDB.dbo.Thaught' does not have a primary key def
           <Property Name="Thaughts" Type="varchar(max)" />
         </EntityType>
         <!--Errors Found During Generation:
-warning 6002: The table/view 'LMSDB.dbo.TR_EMPATTENDANCE' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+warning 6002: The table/view 'LMS.dbo.TR_EMPATTENDANCE' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="TR_EMPATTENDANCE">
           <Key>
             <PropertyRef Name="EMP_ID" />
@@ -527,7 +528,6 @@ warning 6002: The table/view 'LMSDB.dbo.TR_EMPATTENDANCE' does not have a primar
             <End Role="Role" EntitySet="Roles" />
             <End Role="User" EntitySet="Users" />
           </AssociationSet>
-          <EntitySet Name="Leaves" EntityType="LMSDBModel.Leave" />
           <EntitySet Name="AllEmployeeDetails" EntityType="LMSDBModel.AllEmployeeDetails" />
           <AssociationSet Name="FK_DEPDETAILSID" Association="LMSDBModel.FK_DEPDETAILSID">
             <End Role="Department" EntitySet="Departments" />
@@ -559,12 +559,13 @@ warning 6002: The table/view 'LMSDB.dbo.TR_EMPATTENDANCE' does not have a primar
             <End Role="JobDescription" EntitySet="JobDescriptions" />
             <End Role="TR_EMPLEAVE" EntitySet="EmployeeLeaves" />
           </AssociationSet>
-          <AssociationSet Name="FK_EMPLEAVETYPEID" Association="LMSDBModel.FK_EMPLEAVETYPEID">
-            <End Role="Leave" EntitySet="Leaves" />
-            <End Role="TR_EMPLEAVE" EntitySet="EmployeeLeaves" />
-          </AssociationSet>
           <EntitySet Name="Thaughts" EntityType="LMSDBModel.Thaught" />
           <EntitySet Name="Events" EntityType="LMSDBModel.Event" />
+          <EntitySet Name="Leaves" EntityType="LMSDBModel.Leave" />
+          <AssociationSet Name="FK_EMPLEAVETYPEID" Association="LMSDBModel.FK_EMPLEAVETYPEID">
+            <End Role="MT_LEAVE" EntitySet="Leaves" />
+            <End Role="EmployeeLeave" EntitySet="EmployeeLeaves" />
+          </AssociationSet>
           </EntityContainer>
         <EntityType Name="UserActivation">
           <Key>
@@ -607,14 +608,6 @@ warning 6002: The table/view 'LMSDB.dbo.TR_EMPATTENDANCE' does not have a primar
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityType Name="Leave">
-          <Key>
-            <PropertyRef Name="LEAVE_ID" />
-          </Key>
-          <Property Name="LEAVE_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="LEAVE_TYPE" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="TR_EMPLEAVE" Relationship="LMSDBModel.FK_EMPLEAVETYPEID" FromRole="Leave" ToRole="TR_EMPLEAVE" />
-        </EntityType>
         <EntityType Name="AllEmployeeDetails">
           <Key>
             <PropertyRef Name="EmployeeID" />
@@ -713,7 +706,7 @@ warning 6002: The table/view 'LMSDB.dbo.TR_EMPATTENDANCE' does not have a primar
           <NavigationProperty Name="MT_EMPLOYEEDETAILS" Relationship="LMSDBModel.FK_APPROVALEMPID" FromRole="TR_EMPLEAVE" ToRole="AllEmployeeDetails" />
           <NavigationProperty Name="MT_EMPLOYEEDETAILS1" Relationship="LMSDBModel.FK_EMPLEAVEID" FromRole="TR_EMPLEAVE" ToRole="AllEmployeeDetails" />
           <NavigationProperty Name="MT_JOBDESCRIPTION" Relationship="LMSDBModel.FK_JOBLEAVEID" FromRole="TR_EMPLEAVE" ToRole="JobDescription" />
-          <NavigationProperty Name="MT_LEAVE" Relationship="LMSDBModel.FK_EMPLEAVETYPEID" FromRole="TR_EMPLEAVE" ToRole="Leave" />
+          <NavigationProperty Name="MT_LEAVE" Relationship="LMSDBModel.FK_EMPLEAVETYPEID" FromRole="EmployeeLeave" ToRole="MT_LEAVE" />
         </EntityType>
         <Association Name="FK_DEPLEAVEID">
           <End Type="LMSDBModel.Department" Role="Department" Multiplicity="1" />
@@ -763,18 +756,6 @@ warning 6002: The table/view 'LMSDB.dbo.TR_EMPATTENDANCE' does not have a primar
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_EMPLEAVETYPEID">
-          <End Type="LMSDBModel.Leave" Role="Leave" Multiplicity="1" />
-          <End Type="LMSDBModel.EmployeeLeave" Role="TR_EMPLEAVE" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Leave">
-              <PropertyRef Name="LEAVE_ID" />
-            </Principal>
-            <Dependent Role="TR_EMPLEAVE">
-              <PropertyRef Name="LeaveId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <EntityType Name="Thaught">
           <Key>
             <PropertyRef Name="ThaughtId" />
@@ -791,6 +772,27 @@ warning 6002: The table/view 'LMSDB.dbo.TR_EMPATTENDANCE' does not have a primar
           <Property Name="EventName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="EventDescription" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
         </EntityType>
+        <EntityType Name="Leave">
+          <Key>
+            <PropertyRef Name="LEAVE_ID" />
+          </Key>
+          <Property Name="LEAVE_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="LEAVE_TYPE" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="LEAVE_TOTALDAYS" Type="Int32" />
+          <NavigationProperty Name="TR_EMPLEAVE" Relationship="LMSDBModel.FK_EMPLEAVETYPEID" FromRole="MT_LEAVE" ToRole="EmployeeLeave" />
+        </EntityType>
+        <Association Name="FK_EMPLEAVETYPEID">
+          <End Type="LMSDBModel.Leave" Role="MT_LEAVE" Multiplicity="1" />
+          <End Type="LMSDBModel.EmployeeLeave" Role="EmployeeLeave" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MT_LEAVE">
+              <PropertyRef Name="LEAVE_ID" />
+            </Principal>
+            <Dependent Role="EmployeeLeave">
+              <PropertyRef Name="LeaveId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -862,14 +864,6 @@ warning 6002: The table/view 'LMSDB.dbo.TR_EMPATTENDANCE' does not have a primar
                 <ScalarProperty Name="Password" ColumnName="Password" />
                 <ScalarProperty Name="Username" ColumnName="Username" />
                 <ScalarProperty Name="UserId" ColumnName="UserId" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Leaves">
-            <EntityTypeMapping TypeName="LMSDBModel.Leave">
-              <MappingFragment StoreEntitySet="MT_LEAVE">
-                <ScalarProperty Name="LEAVE_TYPE" ColumnName="LEAVE_TYPE" />
-                <ScalarProperty Name="LEAVE_ID" ColumnName="LEAVE_ID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -945,6 +939,15 @@ warning 6002: The table/view 'LMSDB.dbo.TR_EMPATTENDANCE' does not have a primar
                 <ScalarProperty Name="EventDescription" ColumnName="EventDescription" />
                 <ScalarProperty Name="EventName" ColumnName="EventName" />
                 <ScalarProperty Name="EventId" ColumnName="EventId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Leaves">
+            <EntityTypeMapping TypeName="LMSDBModel.Leave">
+              <MappingFragment StoreEntitySet="MT_LEAVE">
+                <ScalarProperty Name="LEAVE_TOTALDAYS" ColumnName="LEAVE_TOTALDAYS" />
+                <ScalarProperty Name="LEAVE_TYPE" ColumnName="LEAVE_TYPE" />
+                <ScalarProperty Name="LEAVE_ID" ColumnName="LEAVE_ID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

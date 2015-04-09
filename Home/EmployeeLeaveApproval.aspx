@@ -56,7 +56,7 @@
                         
                          <asp:TemplateField HeaderText="Leave To">
                             <ItemTemplate>
-                                <%#Eval("LeaveTodatDateTime") %>
+                                <%#Eval("LeaveToDateTime") %>
                             </ItemTemplate>
                         </asp:TemplateField>
                         
@@ -90,13 +90,13 @@
                             </ItemTemplate>
                         </asp:TemplateField>
 
-                          <asp:TemplateField HeaderText="Remaining Days">
+                         <%-- <asp:TemplateField HeaderText="Remaining Days">
                             <ItemTemplate>
                               <button class="btn btn-primary" type="button">
                                    <span class="badge">4</span>
                                       </button>
                             </ItemTemplate>
-                        </asp:TemplateField>
+                        </asp:TemplateField>--%>
                                             
                          <asp:TemplateField HeaderText="Grant">
                             <ItemTemplate>

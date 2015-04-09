@@ -33,6 +33,11 @@
                          <asp:TextBox id="txtToDate" style="width:150px" placeholder="To Date"  class="form-control input-sm" runat="server"></asp:TextBox>
                          </div>
                       </div>
+                     <%-- <div class="form-group">
+                          <div class="col-lg-3">
+                         <asp:TextBox id="txtEmployeeId" style="width:150px" placeholder="EmployeeId"  class="form-control input-sm" runat="server"></asp:TextBox>
+                         </div>
+                      </div>--%>
                    <div class="form-group">
                           <div class="col-lg-3">
                               <asp:Button ID="btnSearch" class="btn btn-primary" runat="server" Text="Search" OnClick="btnSearch_Click" />
@@ -149,7 +154,7 @@
                             </ItemTemplate>
                         </asp:TemplateField>
 
-                        <%--                          <asp:TemplateField HeaderText="Remaining Days">
+                        <%-- <asp:TemplateField HeaderText="Remaining Days">
                             <ItemTemplate>
                               <button class="btn btn-primary" type="button">
                                    <span class="badge">4</span>

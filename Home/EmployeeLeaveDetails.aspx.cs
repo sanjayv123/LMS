@@ -35,9 +35,10 @@ namespace Home
         {
             employeeRepository = new EmployeeRepository();
             var allEmployeeLeaveDetails = employeeRepository.getleaveDetailsForAllEmployee();
-            var   datefilter =
-                allEmployeeLeaveDetails.Where(a => a.LeaveFromDateTime >= Convert.ToDateTime(txtFromDate.Text) &&
-                                                   a.LeaveFromDateTime <= Convert.ToDateTime(txtToDate.Text));
+            var   datefilter = allEmployeeLeaveDetails.Where(a => a.LeaveFromDateTime >= Convert.ToDateTime(txtFromDate.Text) &&
+                                                   a.LeaveFromDateTime <= Convert.ToDateTime(txtToDate.Text) );
+
+           // var datefilter = allEmployeeLeaveDetails.Where(l => l.EmployeeId == Convert.ToInt32(txtEmployeeId.Text));
             if (allEmployeeLeaveDetails != null)
             {
                 gvEmployeeLeave.DataSource = datefilter;

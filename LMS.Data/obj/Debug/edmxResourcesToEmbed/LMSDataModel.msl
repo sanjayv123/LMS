@@ -69,14 +69,6 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="Leaves">
-      <EntityTypeMapping TypeName="LMSDBModel.Leave">
-        <MappingFragment StoreEntitySet="MT_LEAVE">
-          <ScalarProperty Name="LEAVE_TYPE" ColumnName="LEAVE_TYPE" />
-          <ScalarProperty Name="LEAVE_ID" ColumnName="LEAVE_ID" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
     <EntitySetMapping Name="AllEmployeeDetails">
       <EntityTypeMapping TypeName="LMSDBModel.AllEmployeeDetails">
         <MappingFragment StoreEntitySet="MT_EMPLOYEEDETAILS">
@@ -149,6 +141,15 @@
           <ScalarProperty Name="EventDescription" ColumnName="EventDescription" />
           <ScalarProperty Name="EventName" ColumnName="EventName" />
           <ScalarProperty Name="EventId" ColumnName="EventId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Leaves">
+      <EntityTypeMapping TypeName="LMSDBModel.Leave">
+        <MappingFragment StoreEntitySet="MT_LEAVE">
+          <ScalarProperty Name="LEAVE_TOTALDAYS" ColumnName="LEAVE_TOTALDAYS" />
+          <ScalarProperty Name="LEAVE_TYPE" ColumnName="LEAVE_TYPE" />
+          <ScalarProperty Name="LEAVE_ID" ColumnName="LEAVE_ID" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

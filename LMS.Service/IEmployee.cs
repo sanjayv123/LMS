@@ -37,7 +37,6 @@ namespace LMS.Service
 
         EmployeeLeave getLeave(int Id);
 
-
         ////delete employee
         //void DeleteEmployee(EmployeeService Emp);
     }

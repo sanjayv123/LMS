@@ -84,6 +84,12 @@ namespace LMS.Service
             emp.EmployeeCode = Convert.ToInt32(Emp.EmployeeCode);
             emp.DOB = Emp.DOB;
             emp.JoiningDate = Emp.JoiningDate;
+            emp.Gender = Emp.Gender;
+            emp.ReportingManager = Emp.ReportingManager;
+            emp.JobId = Convert.ToInt32(Emp.JobId);
+            emp.RoleId = Convert.ToInt32(Emp.RoleId);
+            emp.DepartmentId = Convert.ToInt32(Emp.DepartmentId);
+            emp.UserName = Emp.UserName;
             //emp.EMP_GENDER = Emp.EMP_GENDER;
             // var entry = _dbcontext.Entry(Emp);
             //entry.CurrentValues.SetValues(Emp);
@@ -95,8 +101,6 @@ namespace LMS.Service
             return _dbcontext.AllEmployeeDetails.Where(e => e.EmployeeID == Id).FirstOrDefault();
 
         }
-
-
 
         public void getEmployeeAttendance(int Id)
         {
@@ -130,7 +134,7 @@ namespace LMS.Service
                             c in _dbcontext.Leaves.AsEnumerable() on l.LeaveId equals c.LEAVE_ID
                         where l.EmployeeId == employeeid
                         select new LeaveHelper()
-                        {
+                        { 
                             LeaveId = l.EmployeeleaveID,
                             LeaveType = c.LEAVE_TYPE,
                             LeaveFromDateTime = l.LeaveFromdate,
@@ -138,10 +142,20 @@ namespace LMS.Service
                             JoiningDateTime = l.ReJoiningdate,
                             LeaveStatus = l.LeaveStatus,
                             WeekendOrHolidayInLeave = (int)l.WeekendORHolidaysInLeave,
-                            LeaveApprovalStatus = l.LeaveApprovalStatus == true ? "Approved" : "Pending"
-
+                            TotaldaysOnLeaveCurrent =(int)l.TotaldaysOnLeaveCurrent,
+                            LeaveApprovalStatus = l.LeaveApprovalStatus == true ? "Approved" : "Pending",
+                                                        
                         };
             return query;
+        }
+
+        public double getemployeeEarnedleave(DateTime joiningdate)
+        {
+            DateTime firstdayofmonth = new DateTime(DateTime.Now.Year,DateTime.Now.Month, 1);
+            TimeSpan totalworkingdays = Convert.ToDateTime(firstdayofmonth, System.Globalization.CultureInfo.GetCultureInfo("hi-IN").DateTimeFormat) -
+                                  Convert.ToDateTime(joiningdate, System.Globalization.CultureInfo.GetCultureInfo("hi-IN").DateTimeFormat);
+            return totalworkingdays.TotalDays * 1.25;
+            
         }
 
         public List<string> getCalendar()
@@ -167,7 +181,7 @@ namespace LMS.Service
                             DepartmentName = dept.DEP_NAME,
                             JobName = JobD.JOB_ROLE,
                             LeaveId = l.LeaveId,
-                            // LeaveRemainingdays=(int) l.RemainingDays,
+                          //  LeaveRemainingdays=(int) l.RemainingDays,
                             LeaveStatus = l.LeaveStatus,
                             LeaveReason = l.LeaveReason,
                             LeaveType = c.LEAVE_TYPE,
@@ -177,8 +191,8 @@ namespace LMS.Service
                             JoiningDateTime = l.ReJoiningdate,
                             WeekendOrHolidayInLeave = (int)l.WeekendORHolidaysInLeave,
                             TotaldaysOnLeaveCurrent = (int)l.TotaldaysOnLeaveCurrent,
-                            TotalLeaveTakenInYear = (int)l.TotalLeaveTakenInYear
-
+                            TotalLeaveTakenInYear = (int)l.TotalLeaveTakenInYear,
+                            
                         };
 
             return query;
@@ -203,7 +217,7 @@ namespace LMS.Service
                             DepartmentName = dept.DEP_NAME,
                             JobName = JobD.JOB_ROLE,
                             LeaveId = l.LeaveId,
-                            LeaveRemainingdays = (int)l.RemainingDays,
+                            //LeaveRemainingdays = (int)l.RemainingDays,
                             LeaveStatus = l.LeaveStatus,
                             LeaveReason = l.LeaveReason,
                             LeaveType = c.LEAVE_TYPE,
@@ -288,6 +302,11 @@ namespace LMS.Service
         public string getEvents()
         {
             return _dbcontext.Events.Select(e => e.EventDescription).FirstOrDefault();
+        }
+
+        public List<Role> getallrole()
+        {
+            return _dbcontext.Roles.ToList();
         }
 
     }

@@ -1,83 +1,43 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/EmployeeMaster.Master" AutoEventWireup="true" CodeBehind="EmployeeProfile.aspx.cs" Inherits="Home.EmployeeProfile1" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/EmployeeMaster.Master" AutoEventWireup="true" CodeBehind="EmployeeProfile.aspx.cs" Inherits="Home.EmployeeProfile" %>
+
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
-</asp:Content>
+    </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    </div>
-    
+
     <div class="box-content">
-       <table class="table table-bordered table-stripped">
-         <tr>
-            <td>Name
+        <%-- <table class="table table-bordered table-stripped">
+
+           <tr>
+            <td class="auto-style1">Casual Leaves Applied
             </td>
             <td>
-                <asp:Label ID="lblName" runat="server"></asp:Label>
+                <asp:Label ID="lblLeavesApplied" runat="server"></asp:Label>
+            </td>
+        </tr>
+
+        <tr>
+            <td class="auto-style1">Casual Leaves Available
+            </td>
+            <td>
+                <asp:Label ID="lblLeavesAvailable" runat="server"></asp:Label>
+            </td>
+        </tr>
+
+        <tr>
+            <td class="auto-style1">Leaves Availed
+            </td>
+            <td>
+                <asp:Label ID="lblLeavesAvailed" runat="server"></asp:Label>
             </td>
         </tr>
 
            <tr>
-            <td>EmployeeId
+            <td class="auto-style1">Leaves Carried Over
             </td>
             <td>
-                <asp:Label ID="lblEmployeeId" runat="server"></asp:Label>
+                <asp:Label ID="lblLeavesCarriedOver" runat="server"></asp:Label>
             </td>
         </tr>
-
-        <tr>
-            <td>Designation
-            </td>
-            <td>
-                <asp:Label ID="lblDesignation" runat="server"></asp:Label>
-            </td>
-        </tr>
-
-        <tr>
-            <td>Address
-            </td>
-            <td>
-                <asp:Label ID="lblAddress" runat="server"></asp:Label>
-            </td>
-        </tr>
-
-         <tr>
-            <td>Email-Id
-            </td>
-            <td>
-                <asp:Label ID="lblEmailId" runat="server"></asp:Label>
-            </td>
-        </tr>
-
-        <tr>
-            <td>Mobile Number
-            </td>
-            <td>
-                <asp:Label ID="lblMobileNumber" runat="server"></asp:Label>
-            </td>
-        </tr>
-
-           <tr>
-            <td>Phone Number
-            </td>
-            <td>
-                <asp:Label ID="lblPhoneNumber" runat="server"></asp:Label>
-            </td>
-        </tr>
-
-         <tr>
-            <td>DOB
-            </td>
-            <td>
-                <asp:Label ID="lblDOB" runat="server"></asp:Label>
-            </td>
-        </tr>
-
-        <tr>
-            <td>JoiningDate
-            </td>
-            <td>
-                <asp:Label ID="lblJoiningDate" runat="server"></asp:Label>
-            </td>
-        </tr>
-
 
            <%--</tr>
            <tr>
@@ -86,8 +46,45 @@
               <asp:Button ID="btnUpload" runat="server" Text="Upload" OnClick="Upload" />
                </td>
            </tr>--%>
+        <%--  </table>--%>
+
+        <table class="table table-striped">
+           <%-- <caption>Striped Table Layout</caption>--%>
+            <thead>
+                <tr>
+                    <th>&nbsp;</th>
+                    <th>casual leave</th>
+                    <th>planned leave</th>
+                    <th>Sick leave</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <th>Total Leaves</th>
+                    <td>
+                        <asp:Label ID="lbltotalcasualleaves" runat="server" Text="Label"></asp:Label></td>
+                    <td>
+                        <asp:Label ID="lblTotalPlannedLeaves" runat="server" Text="Label"></asp:Label>
+                    </td>
+                    <td>
+                        <asp:Label ID="lblTotalSickLeaves" runat="server" Text="Label"></asp:Label>
+                    </td>
+                </tr>
+                <tr>
+                    <th>Leave Taken </th>
+                    <td><asp:Label ID="lbltotalcasualleavesTaken" runat="server" Text="Label"></asp:Label></td>
+                    <td><asp:Label ID="lblTotalPlannedLeavesTaken" runat="server" Text="Label"></asp:Label></td>
+                    <td><asp:Label ID="lblTotalSickLeavesTaken" runat="server" Text="Label"></asp:Label></td>
+                </tr>
+                <tr>
+                    <th>Leave Available</th>
+                    <td><asp:Label ID="lbltotalcasualleavesAvailable" runat="server" Text="Label"></asp:Label></td>
+                    <td><asp:Label ID="lblTotalPlannedLeavesAvailable" runat="server" Text="Label"></asp:Label></td>
+                    <td><asp:Label ID="lblTotalSickLeavesAvailable" runat="server" Text="Label"></asp:Label></td>
+                </tr>
+            </tbody>
         </table>
-        
-      </div>
-  </div>
+
+    </div>
+
 </asp:Content>
