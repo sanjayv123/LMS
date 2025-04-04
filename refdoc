@@ -1,0 +1,98 @@
+Application Reference Document
+Overview
+This document provides best practices for structuring a full-stack web application that includes an API, a database, and mobile applications for both iOS and Android.
+Folder Structure
+project-root/
+│-- backend/                 # Backend (API and Database)
+│   │-- src/
+│   │   │-- controllers/     # Handles business logic and request processing
+│   │   │-- models/          # Database models
+│   │   │-- routes/          # API endpoints
+│   │   │-- middleware/      # Authentication, logging, etc.
+│   │   │-- config/          # Configuration files
+│   │   │-- services/        # Service layer for business logic
+│   │   └── utils/           # Utility functions
+│   │-- tests/               # Unit and integration tests
+│   │-- migrations/          # Database migrations
+│   │-- package.json         # Dependencies and scripts
+│   └── server.js            # Entry point for the backend server
+│
+│-- frontend/                # Web application frontend
+│   │-- public/              # Static assets
+│   │-- src/
+│   │   │-- components/      # Reusable UI components
+│   │   │-- pages/           # Page-level components
+│   │   │-- store/           # State management (e.g., Redux, Zustand)
+│   │   │-- hooks/           # Custom React hooks
+│   │   │-- services/        # API interaction services
+│   │   │-- utils/           # Utility functions
+│   │   └── App.js           # Main application file
+│   │-- index.html           # Root HTML file
+│   └── package.json         # Dependencies and scripts
+│
+│-- mobile/                  # Mobile applications
+│   │-- android/             # Android project
+│   │-- ios/                 # iOS project
+│   │-- src/
+│   │   │-- components/      # Reusable UI components
+│   │   │-- screens/         # Screen components
+│   │   │-- services/        # API interaction services
+│   │   │-- store/           # State management
+│   │   └── App.tsx          # Main application file
+│   │-- package.json         # Dependencies and scripts (if using React Native)
+│   └── config/              # Mobile-specific configuration files
+│
+│-- docs/                    # Documentation
+│-- .env                     # Environment variables
+│-- README.md                # Project description
+Backend (API & Database)
+Tech Stack:
+•	Node.js (Express.js or NestJS) – API development
+•	MongoDB on cosmosDB – Database
+•	Prisma  – ORM/ODM for database management
+•	JWT & OAuth – Authentication
+•	Jest / Mocha – Testing framework
+Best Practices:
+•	Keep controllers lean and delegate logic to services.
+•	Use environment variables for configuration.
+•	Implement logging and error handling middleware.
+•	Follow RESTful API principles or use GraphQL if needed.
+•	Use database migrations for schema changes.
+•	Ensure API security via rate limiting, input validation, and authentication.
+Frontend (Web Application)
+Tech Stack:
+•	React.js / Next.js / Vue.js – Frontend framework
+•	Redux / Zustand / Context API – State management
+•	Axios / Fetch API – API calls
+•	TailwindCSS / Material-UI – Styling framework
+Best Practices:
+•	Keep components small and reusable.
+•	Organize files based on feature or domain.
+•	Use hooks for reusable logic.
+•	Implement client-side caching for performance.
+•	Optimize bundle size and implement lazy loading.
+•	Secure API calls with authentication tokens.
+Mobile (iOS & Android)
+Tech Stack:
+•	React Native / Flutter – Cross-platform development
+•	Swift (iOS) / Kotlin (Android) – Native development
+•	Redux / Zustand / MobX – State management
+•	Axios / Fetch API – API calls
+Best Practices:
+•	Maintain a modular structure with reusable components.
+•	Optimize performance by minimizing re-renders.
+•	Follow platform-specific UI/UX guidelines.
+•	Use TypeScript for better type safety.
+•	Implement offline caching for better user experience.
+•	Secure API calls with authentication tokens.
+API Usage Across Web and Mobile
+Both the web frontend and mobile apps consume the same backend API. The API handles authentication, data retrieval, and business logic, ensuring a single source of truth.
+Security Considerations
+•	Use HTTPS for all communications.
+•	Implement authentication and role-based authorization.
+•	Validate and sanitize user inputs.
+•	Regularly update dependencies to patch vulnerabilities.
+•	Use secure storage for sensitive data in mobile apps.
+Conclusion
+This document provides a structured approach to developing a scalable and maintainable full-stack web and mobile application. Following these best practices will ensure efficient development and security across all components.
+
